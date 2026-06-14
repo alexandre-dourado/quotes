@@ -1286,19 +1286,46 @@ function setSyncStatus(status) {
   dot.className = 'sync-dot ' + status;
 }
 
+async function pushToRemote() {
+  // Uploads the entire local db to GAS/GitHub (replaces remote)
+  setSyncStatus('syncing');
+  const result = await gasPost({ action: 'saveDatabase', db });
+  if (result && result.success) {
+    setSyncStatus('ok');
+    return true;
+  }
+  setSyncStatus('error');
+  return false;
+}
+
 async function syncFromRemote() {
   setSyncStatus('syncing');
   const result = await gasGet({ action: 'getData' });
-  if (result.success && result.data) {
-    db = result.data;
-    await saveDbToIDB();
-    renderAll();
-    setSyncStatus('ok');
-    toast('Sincronizado.');
-  } else {
+  if (!result.success || !result.data) {
     setSyncStatus('error');
     toast('Erro ao sincronizar. Usando dados locais.', true);
+    return;
   }
+
+  const remote = result.data;
+  const remoteCount = remote.quotes?.length ?? 0;
+  const localCount  = db.quotes?.length ?? 0;
+
+  // If local has data and remote is empty or behind → push local up first
+  if (localCount > 0 && remoteCount === 0) {
+    toast('Remoto vazio. Enviando dados locais…');
+    const pushed = await pushToRemote();
+    if (pushed) toast('Dados enviados ao GitHub.');
+    else toast('Falha ao enviar. Tente novamente.', true);
+    return;
+  }
+
+  // If remote is ahead or equal → pull remote down
+  db = remote;
+  await saveDbToIDB();
+  renderAll();
+  setSyncStatus('ok');
+  toast('Sincronizado.');
 }
 
 // ============================================================
@@ -1787,7 +1814,15 @@ function importJSON(file) {
       db = parsed;
       await saveDbToIDB();
       renderAll();
-      toast(`${db.quotes.length} citações importadas.`);
+      toast(`${db.quotes.length} citações importadas. Enviando ao GitHub…`);
+
+      if (navigator.onLine && GAS_URL !== 'YOUR_GAS_DEPLOYMENT_URL_HERE') {
+        const pushed = await pushToRemote();
+        if (pushed) toast('Banco enviado ao GitHub com sucesso.');
+        else toast('Salvo localmente. Falha ao enviar ao GitHub.', true);
+      } else {
+        toast(`${db.quotes.length} citações salvas localmente (offline).`);
+      }
     } catch {
       toast('Erro ao ler o arquivo JSON.', true);
     }
