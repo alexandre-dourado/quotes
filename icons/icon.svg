@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#2563eb"/>
+      <stop offset="100%" stop-color="#1d4ed8"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Fundo -->
+  <rect width="512" height="512" rx="120" fill="url(#bg)"/>
+
+  <!-- Balão -->
+  <path
+    d="M120 120h272c33 0 60 27 60 60v120c0 33-27 60-60 60H250l-78 58c-9 7-22 0-22-12v-46h-30c-33 0-60-27-60-60V180c0-33 27-60 60-60z"
+    fill="white"/>
+
+  <!-- Aspas -->
+  <text
+    x="256"
+    y="280"
+    text-anchor="middle"
+    font-family="Georgia, serif"
+    font-size="180"
+    font-weight="bold"
+    fill="#2563eb">
+    “
+  </text>
+</svg>

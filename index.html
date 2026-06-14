@@ -1,0 +1,1973 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#111111">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<title>Quotes</title>
+<link rel="manifest" href="manifest.json">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+/* ============================================================
+   TOKENS
+   ============================================================ */
+:root {
+  --bg:        #F7F6F3;
+  --fg:        #111111;
+  --accent:    #C8102E;
+  --muted:     #8A8A8A;
+  --border:    #D8D6CF;
+  --surface:   #EEECEA;
+  --overlay:   rgba(17,17,17,0.55);
+
+  --f-display: 'DM Serif Display', Georgia, serif;
+  --f-body:    'Inter', system-ui, sans-serif;
+  --f-mono:    'JetBrains Mono', 'Courier New', monospace;
+
+  --max-w: 900px;
+  --nav-h: 56px;
+  --radius: 0px;
+
+  color-scheme: light;
+}
+
+[data-theme="dark"] {
+  --bg:      #0E0E0E;
+  --fg:      #F0EFE9;
+  --muted:   #666666;
+  --border:  #222222;
+  --surface: #181818;
+  --overlay: rgba(0,0,0,0.7);
+  color-scheme: dark;
+}
+
+/* ============================================================
+   RESET
+   ============================================================ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 16px; scroll-behavior: smooth; }
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--f-body);
+  font-size: 1rem;
+  line-height: 1.6;
+  min-height: 100dvh;
+  transition: background 0.2s, color 0.2s;
+}
+button { cursor: pointer; font-family: inherit; }
+input, textarea { font-family: inherit; }
+a { color: inherit; text-decoration: none; }
+
+/* ============================================================
+   LAYOUT
+   ============================================================ */
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100dvh;
+}
+
+.nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: var(--nav-h);
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  transition: background 0.2s;
+}
+
+.nav-logo {
+  font-family: var(--f-display);
+  font-size: 1.25rem;
+  letter-spacing: -0.02em;
+  color: var(--fg);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.nav-logo-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+  flex-shrink: 0;
+}
+
+.nav-tabs {
+  display: flex;
+  gap: 0;
+}
+.nav-tab {
+  background: none;
+  border: none;
+  padding: 8px 14px;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--muted);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  transition: color 0.15s;
+  position: relative;
+}
+.nav-tab::after {
+  content: '';
+  position: absolute;
+  bottom: -1px; left: 14px; right: 14px;
+  height: 2px;
+  background: var(--accent);
+  opacity: 0;
+  transition: opacity 0.15s;
+}
+.nav-tab:hover { color: var(--fg); }
+.nav-tab.active { color: var(--fg); }
+.nav-tab.active::after { opacity: 1; }
+
+.nav-actions {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.btn-icon {
+  background: none;
+  border: none;
+  width: 36px; height: 36px;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--muted);
+  transition: color 0.15s;
+  border-radius: 4px;
+}
+.btn-icon:hover { color: var(--fg); background: var(--surface); }
+
+.sync-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--muted);
+  transition: background 0.3s;
+}
+.sync-dot.syncing { background: #F59E0B; animation: pulse 1s infinite; }
+.sync-dot.error   { background: var(--accent); }
+.sync-dot.ok      { background: #10B981; }
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+.main {
+  margin-top: var(--nav-h);
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.view {
+  display: none;
+  flex: 1;
+}
+.view.active { display: flex; flex-direction: column; }
+
+.container {
+  width: 100%;
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ============================================================
+   VIEW: ALL QUOTES
+   ============================================================ */
+#view-all { padding: 48px 0 120px; }
+
+.view-header {
+  padding: 0 24px;
+  margin-bottom: 32px;
+}
+.view-title {
+  font-family: var(--f-display);
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  margin-bottom: 4px;
+}
+.view-count {
+  font-size: 0.8125rem;
+  color: var(--muted);
+  font-family: var(--f-mono);
+}
+
+.search-bar {
+  max-width: var(--max-w);
+  margin: 0 auto 40px;
+  padding: 0 24px;
+  position: relative;
+}
+.search-input {
+  width: 100%;
+  background: none;
+  border: none;
+  border-bottom: 1.5px solid var(--border);
+  padding: 12px 40px 12px 0;
+  font-size: 1rem;
+  color: var(--fg);
+  outline: none;
+  transition: border-color 0.2s;
+}
+.search-input::placeholder { color: var(--muted); }
+.search-input:focus { border-color: var(--fg); }
+.search-icon {
+  position: absolute;
+  right: 24px; top: 50%;
+  transform: translateY(-50%);
+  color: var(--muted);
+  pointer-events: none;
+}
+
+.quotes-list {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.quote-item {
+  display: grid;
+  grid-template-columns: 40px 1fr auto;
+  gap: 0 20px;
+  padding: 24px 0;
+  border-bottom: 1px solid var(--border);
+  cursor: pointer;
+  transition: background 0.1s;
+  align-items: start;
+  position: relative;
+}
+.quote-item:first-child { border-top: 1px solid var(--border); }
+.quote-item:hover .quote-item-text { color: var(--accent); }
+
+.quote-item-id {
+  font-family: var(--f-mono);
+  font-size: 0.6875rem;
+  color: var(--muted);
+  padding-top: 4px;
+  letter-spacing: 0.02em;
+}
+
+.quote-item-body { min-width: 0; }
+
+.quote-item-text {
+  font-family: var(--f-display);
+  font-size: 1.125rem;
+  line-height: 1.45;
+  letter-spacing: -0.01em;
+  margin-bottom: 8px;
+  color: var(--fg);
+  transition: color 0.15s;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.quote-item-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 16px;
+  font-size: 0.8125rem;
+}
+.quote-item-author {
+  color: var(--fg);
+  font-weight: 500;
+}
+.quote-item-source {
+  color: var(--muted);
+}
+.quote-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-top: 8px;
+}
+.tag {
+  font-family: var(--f-mono);
+  font-size: 0.6875rem;
+  color: var(--muted);
+  border: 1px solid var(--border);
+  padding: 2px 7px;
+  letter-spacing: 0.03em;
+}
+
+.quote-item-actions {
+  display: flex;
+  gap: 4px;
+  opacity: 0;
+  transition: opacity 0.15s;
+  flex-shrink: 0;
+}
+.quote-item:hover .quote-item-actions { opacity: 1; }
+.btn-small {
+  background: none;
+  border: 1px solid var(--border);
+  padding: 4px 10px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--muted);
+  transition: all 0.15s;
+}
+.btn-small:hover { border-color: var(--fg); color: var(--fg); }
+.btn-small.danger:hover { border-color: var(--accent); color: var(--accent); }
+
+.empty-state {
+  text-align: center;
+  padding: 80px 24px;
+  color: var(--muted);
+}
+.empty-state-icon {
+  font-size: 3rem;
+  margin-bottom: 16px;
+  opacity: 0.3;
+}
+.empty-state p { font-size: 0.9375rem; }
+
+/* ============================================================
+   VIEW: SPOTLIGHT
+   ============================================================ */
+#view-spotlight {
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100dvh - var(--nav-h));
+  overflow: hidden;
+  padding: 0;
+  position: relative;
+}
+
+.spotlight-wrap {
+  width: 100%;
+  max-width: var(--max-w);
+  padding: 60px 24px;
+  margin: 0 auto;
+}
+
+.spotlight-id {
+  font-family: var(--f-mono);
+  font-size: 0.75rem;
+  color: var(--accent);
+  letter-spacing: 0.1em;
+  margin-bottom: 32px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.spotlight-id::before {
+  content: '';
+  display: block;
+  width: 32px;
+  height: 1px;
+  background: var(--accent);
+}
+
+.spotlight-text {
+  font-family: var(--f-display);
+  font-size: clamp(2rem, 6vw, 4.5rem);
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  color: var(--fg);
+  margin-bottom: 40px;
+  font-style: italic;
+}
+
+.spotlight-author {
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--fg);
+  margin-bottom: 4px;
+}
+.spotlight-source {
+  font-size: 0.875rem;
+  color: var(--muted);
+  font-style: italic;
+}
+
+/* ============================================================
+   VIEW: RANDOM
+   ============================================================ */
+#view-random {
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100dvh - var(--nav-h));
+  padding: 60px 24px;
+}
+
+.random-wrap {
+  width: 100%;
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+.random-quote-text {
+  font-family: var(--f-display);
+  font-size: clamp(1.5rem, 3.5vw, 2.5rem);
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+  font-style: italic;
+  margin-bottom: 32px;
+  color: var(--fg);
+}
+
+.random-meta { margin-bottom: 48px; }
+.random-author {
+  font-weight: 600;
+  font-size: 0.9375rem;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+.random-source {
+  font-size: 0.875rem;
+  color: var(--muted);
+  font-style: italic;
+  margin-top: 2px;
+}
+
+.btn-random {
+  background: var(--fg);
+  color: var(--bg);
+  border: none;
+  padding: 14px 28px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  transition: opacity 0.15s;
+}
+.btn-random:hover { opacity: 0.8; }
+
+/* ============================================================
+   VIEW: STATS
+   ============================================================ */
+#view-stats { padding: 48px 0 80px; }
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  margin-bottom: 48px;
+}
+.stat-card {
+  background: var(--bg);
+  padding: 28px 24px;
+}
+.stat-label {
+  font-size: 0.75rem;
+  font-family: var(--f-mono);
+  color: var(--muted);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+.stat-value {
+  font-family: var(--f-display);
+  font-size: 2.5rem;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  color: var(--fg);
+}
+.stat-value.accent { color: var(--accent); }
+
+.stats-section {
+  margin-bottom: 40px;
+}
+.stats-section-title {
+  font-family: var(--f-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 0;
+}
+
+.ranking-list { }
+.ranking-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--border);
+}
+.ranking-pos {
+  font-family: var(--f-mono);
+  font-size: 0.6875rem;
+  color: var(--muted);
+  width: 24px;
+  flex-shrink: 0;
+}
+.ranking-name { flex: 1; font-size: 0.9375rem; }
+.ranking-count {
+  font-family: var(--f-mono);
+  font-size: 0.8125rem;
+  color: var(--muted);
+}
+.ranking-bar-wrap {
+  width: 80px;
+  height: 3px;
+  background: var(--border);
+}
+.ranking-bar {
+  height: 100%;
+  background: var(--accent);
+}
+
+.timeline-chart {
+  padding-top: 16px;
+}
+.timeline-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 7px 0;
+}
+.timeline-month {
+  font-family: var(--f-mono);
+  font-size: 0.6875rem;
+  color: var(--muted);
+  width: 64px;
+  flex-shrink: 0;
+  letter-spacing: 0.04em;
+}
+.timeline-bar-wrap {
+  flex: 1;
+  height: 8px;
+  background: var(--surface);
+  position: relative;
+}
+.timeline-bar {
+  height: 100%;
+  background: var(--fg);
+  transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.timeline-val {
+  font-family: var(--f-mono);
+  font-size: 0.6875rem;
+  color: var(--muted);
+  width: 24px;
+  text-align: right;
+  flex-shrink: 0;
+}
+
+/* ============================================================
+   FAB
+   ============================================================ */
+.fab {
+  position: fixed;
+  right: 32px;
+  bottom: 32px;
+  width: 56px; height: 56px;
+  background: var(--fg);
+  color: var(--bg);
+  border: none;
+  font-size: 1.75rem;
+  display: flex; align-items: center; justify-content: center;
+  z-index: 200;
+  transition: transform 0.2s, background 0.2s;
+  line-height: 1;
+}
+.fab:hover { transform: scale(1.08); }
+
+/* ============================================================
+   MODAL
+   ============================================================ */
+.modal-overlay {
+  position: fixed; inset: 0;
+  background: var(--overlay);
+  z-index: 300;
+  display: none;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 60px 16px;
+  overflow-y: auto;
+  backdrop-filter: blur(2px);
+}
+.modal-overlay.open { display: flex; }
+
+.modal {
+  width: 100%;
+  max-width: 600px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  padding: 40px;
+  position: relative;
+  animation: modal-in 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes modal-in {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.modal-title {
+  font-family: var(--f-display);
+  font-size: 1.75rem;
+  letter-spacing: -0.02em;
+  margin-bottom: 32px;
+}
+
+.modal-close {
+  position: absolute;
+  top: 20px; right: 20px;
+  background: none;
+  border: none;
+  font-size: 1.25rem;
+  color: var(--muted);
+  width: 36px; height: 36px;
+  display: flex; align-items: center; justify-content: center;
+  transition: color 0.15s;
+}
+.modal-close:hover { color: var(--fg); }
+
+.field {
+  margin-bottom: 24px;
+}
+.field label {
+  display: block;
+  font-size: 0.75rem;
+  font-family: var(--f-mono);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 8px;
+}
+.field-required::after { content: ' *'; color: var(--accent); }
+.field input,
+.field textarea {
+  width: 100%;
+  background: none;
+  border: none;
+  border-bottom: 1.5px solid var(--border);
+  padding: 10px 0;
+  font-size: 1rem;
+  color: var(--fg);
+  outline: none;
+  transition: border-color 0.2s;
+  resize: none;
+}
+.field input:focus,
+.field textarea:focus { border-color: var(--fg); }
+.field input::placeholder,
+.field textarea::placeholder { color: var(--muted); }
+
+.autocomplete-wrap { position: relative; }
+.autocomplete-list {
+  position: absolute;
+  top: 100%; left: 0; right: 0;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  z-index: 10;
+  max-height: 200px;
+  overflow-y: auto;
+  display: none;
+}
+.autocomplete-list.open { display: block; }
+.autocomplete-item {
+  padding: 10px 14px;
+  font-size: 0.9375rem;
+  cursor: pointer;
+  transition: background 0.1s;
+}
+.autocomplete-item:hover,
+.autocomplete-item.selected { background: var(--surface); }
+
+.tags-input-wrap {
+  border-bottom: 1.5px solid var(--border);
+  padding: 6px 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  align-items: center;
+  min-height: 42px;
+  transition: border-color 0.2s;
+  position: relative;
+}
+.tags-input-wrap:focus-within { border-color: var(--fg); }
+.tag-chip {
+  display: flex; align-items: center; gap: 5px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 3px 8px;
+  font-family: var(--f-mono);
+  font-size: 0.75rem;
+  color: var(--fg);
+}
+.tag-chip-remove {
+  background: none; border: none;
+  font-size: 0.875rem;
+  color: var(--muted);
+  padding: 0;
+  line-height: 1;
+  cursor: pointer;
+}
+.tag-chip-remove:hover { color: var(--accent); }
+.tags-input {
+  background: none;
+  border: none;
+  outline: none;
+  font-size: 0.9375rem;
+  color: var(--fg);
+  min-width: 120px;
+  flex: 1;
+}
+.tags-input::placeholder { color: var(--muted); }
+
+.modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 32px;
+  padding-top: 24px;
+  border-top: 1px solid var(--border);
+}
+
+.btn-secondary {
+  background: none;
+  border: 1px solid var(--border);
+  padding: 10px 20px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--muted);
+  transition: all 0.15s;
+}
+.btn-secondary:hover { border-color: var(--fg); color: var(--fg); }
+
+.btn-primary {
+  background: var(--fg);
+  color: var(--bg);
+  border: 1px solid var(--fg);
+  padding: 10px 24px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  transition: opacity 0.15s;
+}
+.btn-primary:hover { opacity: 0.8; }
+.btn-primary:disabled { opacity: 0.4; cursor: not-allowed; }
+
+/* ============================================================
+   TOOLBAR (import/export)
+   ============================================================ */
+.toolbar {
+  max-width: var(--max-w);
+  margin: 0 auto 32px;
+  padding: 0 24px;
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.btn-tool {
+  background: none;
+  border: 1px solid var(--border);
+  padding: 8px 16px;
+  font-size: 0.75rem;
+  font-family: var(--f-mono);
+  letter-spacing: 0.04em;
+  color: var(--muted);
+  transition: all 0.15s;
+  display: flex; align-items: center; gap: 6px;
+}
+.btn-tool:hover { border-color: var(--fg); color: var(--fg); }
+
+/* ============================================================
+   TOAST
+   ============================================================ */
+.toast-wrap {
+  position: fixed;
+  bottom: 100px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 400;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: center;
+  pointer-events: none;
+}
+.toast {
+  background: var(--fg);
+  color: var(--bg);
+  padding: 10px 20px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  animation: toast-in 0.2s ease, toast-out 0.3s ease 2.7s forwards;
+  white-space: nowrap;
+}
+.toast.error { background: var(--accent); }
+@keyframes toast-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes toast-out {
+  from { opacity: 1; }
+  to   { opacity: 0; }
+}
+
+/* ============================================================
+   CONFIRM DIALOG
+   ============================================================ */
+.confirm-overlay {
+  position: fixed; inset: 0;
+  background: var(--overlay);
+  z-index: 500;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+.confirm-overlay.open { display: flex; }
+.confirm-box {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  padding: 32px;
+  max-width: 380px;
+  width: 100%;
+  animation: modal-in 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.confirm-title {
+  font-family: var(--f-display);
+  font-size: 1.375rem;
+  margin-bottom: 12px;
+  letter-spacing: -0.02em;
+}
+.confirm-msg { font-size: 0.9375rem; color: var(--muted); margin-bottom: 28px; }
+.confirm-actions { display: flex; gap: 12px; justify-content: flex-end; }
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 640px) {
+  .nav-tabs { display: none; }
+  .nav-logo { font-size: 1.1rem; }
+
+  .mobile-tabs {
+    display: flex;
+    position: fixed;
+    bottom: 0; left: 0; right: 0;
+    background: var(--bg);
+    border-top: 1px solid var(--border);
+    z-index: 100;
+    height: 60px;
+  }
+  .mobile-tab {
+    flex: 1;
+    background: none;
+    border: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+    font-size: 0.625rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--muted);
+    transition: color 0.15s;
+  }
+  .mobile-tab.active { color: var(--fg); }
+  .mobile-tab svg { opacity: 0.6; }
+  .mobile-tab.active svg { opacity: 1; }
+
+  .fab { bottom: 80px; right: 20px; }
+
+  #view-all { padding-bottom: 140px; }
+  #view-stats { padding-bottom: 80px; }
+
+  .quote-item { grid-template-columns: 32px 1fr; }
+  .quote-item-actions { display: none; }
+  .quote-item:active .quote-item-text { color: var(--accent); }
+
+  .modal { padding: 28px 20px; }
+  .stats-grid { grid-template-columns: repeat(2, 1fr); }
+
+  .spotlight-text { font-size: clamp(1.75rem, 8vw, 3rem); }
+}
+
+@media (min-width: 641px) {
+  .mobile-tabs { display: none; }
+}
+
+/* ============================================================
+   UTILITIES
+   ============================================================ */
+.sr-only {
+  position: absolute; width: 1px; height: 1px;
+  padding: 0; margin: -1px; overflow: hidden;
+  clip: rect(0,0,0,0); border: 0;
+}
+.hidden { display: none !important; }
+
+/* No quotes highlight */
+mark {
+  background: rgba(200,16,46,0.15);
+  color: inherit;
+  padding: 0 1px;
+}
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     NAVIGATION
+     ============================================================ -->
+<nav class="nav">
+  <div class="nav-logo">
+    <span class="nav-logo-dot"></span>
+    Quotes
+  </div>
+
+  <div class="nav-tabs">
+    <button class="nav-tab active" data-view="all">All</button>
+    <button class="nav-tab" data-view="spotlight">Spotlight</button>
+    <button class="nav-tab" data-view="random">Random</button>
+    <button class="nav-tab" data-view="stats">Stats</button>
+  </div>
+
+  <div class="nav-actions">
+    <div class="sync-dot" id="syncDot" title="Sync status"></div>
+    <button class="btn-icon" id="btnSync" title="Sync now">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5">
+        <path d="M13.5 2.5A6.5 6.5 0 1 1 8 1.5" stroke-linecap="round"/>
+        <path d="M13.5 2.5V5.5H10.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
+    <button class="btn-icon" id="btnTheme" title="Toggle theme">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5">
+        <circle cx="8" cy="8" r="3"/>
+        <path d="M8 1v1M8 14v1M1 8h1M14 8h1M3.2 3.2l.7.7M12.1 12.1l.7.7M12.1 3.9l-.7.7M3.9 12.1l-.7.7" stroke-linecap="round"/>
+      </svg>
+    </button>
+  </div>
+</nav>
+
+<!-- ============================================================
+     MAIN
+     ============================================================ -->
+<main class="main">
+
+  <!-- ALL QUOTES -->
+  <section id="view-all" class="view active">
+    <div style="padding-top:48px">
+      <div class="view-header container">
+        <h1 class="view-title">All Quotes</h1>
+        <p class="view-count" id="quoteCount">0 citações</p>
+      </div>
+
+      <div class="search-bar">
+        <input type="search" class="search-input" id="searchInput"
+          placeholder="Pesquisar citações, autores, tags…"
+          autocomplete="off">
+        <svg class="search-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5">
+          <circle cx="6.5" cy="6.5" r="4.5"/>
+          <path d="M14 14l-3.5-3.5" stroke-linecap="round"/>
+        </svg>
+      </div>
+
+      <div class="toolbar">
+        <button class="btn-tool" id="btnImport">
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M6 1v7M3 5l3 3 3-3" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M1 9v2h10V9" stroke-linecap="round"/>
+          </svg>
+          Importar JSON
+        </button>
+        <button class="btn-tool" id="btnExportJSON">
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M6 8V1M3 4l3-3 3 3" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M1 9v2h10V9" stroke-linecap="round"/>
+          </svg>
+          Exportar JSON
+        </button>
+        <button class="btn-tool" id="btnExportMD">
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M6 8V1M3 4l3-3 3 3" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M1 9v2h10V9" stroke-linecap="round"/>
+          </svg>
+          Exportar Markdown
+        </button>
+      </div>
+
+      <div class="quotes-list" id="quotesList">
+        <div class="empty-state">
+          <div class="empty-state-icon">❝</div>
+          <p>Nenhuma citação ainda.<br>Clique em <strong>+</strong> para adicionar a primeira.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SPOTLIGHT -->
+  <section id="view-spotlight" class="view">
+    <div class="spotlight-wrap" id="spotlightContent">
+      <div style="color:var(--muted); font-family:var(--f-mono); font-size:0.875rem; padding-top: 20vh;">
+        Nenhuma citação ainda.
+      </div>
+    </div>
+  </section>
+
+  <!-- RANDOM -->
+  <section id="view-random" class="view">
+    <div class="random-wrap">
+      <div id="randomContent">
+        <div style="color:var(--muted); font-family:var(--f-mono); font-size:0.875rem;">
+          Nenhuma citação ainda.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <section id="view-stats" class="view">
+    <div style="padding-top:48px">
+      <div class="view-header container">
+        <h1 class="view-title">Statistics</h1>
+      </div>
+      <div class="container" id="statsContent">
+        <!-- populated by JS -->
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- Mobile nav -->
+<nav class="mobile-tabs">
+  <button class="mobile-tab active" data-view="all">
+    <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5">
+      <path d="M2 4h14M2 9h14M2 14h10" stroke-linecap="round"/>
+    </svg>
+    All
+  </button>
+  <button class="mobile-tab" data-view="spotlight">
+    <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5">
+      <path d="M9 2v1M9 15v1M2 9H1M17 9h-1M4.2 4.2l-.7-.7M14.5 14.5l-.7-.7M14.5 3.5l-.7.7M4.2 13.8l-.7.7" stroke-linecap="round"/>
+      <circle cx="9" cy="9" r="3"/>
+    </svg>
+    Spot
+  </button>
+  <button class="mobile-tab" data-view="random">
+    <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5">
+      <path d="M2 6h2l3 6 3-6 2 4 2-4h2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    Random
+  </button>
+  <button class="mobile-tab" data-view="stats">
+    <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5">
+      <rect x="2" y="10" width="3" height="6" rx="0.5"/>
+      <rect x="7.5" y="6" width="3" height="10" rx="0.5"/>
+      <rect x="13" y="2" width="3" height="14" rx="0.5"/>
+    </svg>
+    Stats
+  </button>
+</nav>
+
+<!-- FAB -->
+<button class="fab" id="fabAdd" title="Adicionar citação" aria-label="Adicionar citação">+</button>
+
+<!-- MODAL: Quote Editor -->
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <button class="modal-close" id="modalClose" aria-label="Fechar">✕</button>
+    <h2 class="modal-title" id="modalTitle">Nova Citação</h2>
+
+    <div class="field">
+      <label for="fText" class="field-required">Citação</label>
+      <textarea id="fText" rows="4" placeholder="O homem é algo que deve ser superado."></textarea>
+    </div>
+
+    <div class="field autocomplete-wrap">
+      <label for="fAuthor" class="field-required">Autor</label>
+      <input type="text" id="fAuthor" placeholder="Friedrich Nietzsche" autocomplete="off">
+      <div class="autocomplete-list" id="authorAC"></div>
+    </div>
+
+    <div class="field">
+      <label for="fSource">Fonte</label>
+      <input type="text" id="fSource" placeholder="Assim Falou Zaratustra">
+    </div>
+
+    <div class="field">
+      <label>Tags</label>
+      <div class="autocomplete-wrap">
+        <div class="tags-input-wrap" id="tagsWrap">
+          <input type="text" class="tags-input" id="tagsInput" placeholder="filosofia, existencialismo…">
+        </div>
+        <div class="autocomplete-list" id="tagAC"></div>
+      </div>
+    </div>
+
+    <div class="modal-footer">
+      <button class="btn-secondary" id="modalCancel">Cancelar</button>
+      <button class="btn-primary" id="modalSave">Salvar</button>
+    </div>
+  </div>
+</div>
+
+<!-- Confirm dialog -->
+<div class="confirm-overlay" id="confirmOverlay">
+  <div class="confirm-box">
+    <p class="confirm-title">Excluir citação?</p>
+    <p class="confirm-msg">Esta ação é permanente e não pode ser desfeita.</p>
+    <div class="confirm-actions">
+      <button class="btn-secondary" id="confirmNo">Cancelar</button>
+      <button class="btn-primary" id="confirmYes" style="background:var(--accent);border-color:var(--accent)">Excluir</button>
+    </div>
+  </div>
+</div>
+
+<!-- Toast container -->
+<div class="toast-wrap" id="toastWrap"></div>
+
+<!-- Hidden file input -->
+<input type="file" id="fileInput" accept=".json" class="hidden">
+
+<script>
+'use strict';
+
+// ============================================================
+// CONFIG — altere apenas GAS_URL
+// ============================================================
+const GAS_URL = 'https://script.google.com/macros/s/AKfycbyEZxz_1kuvDGttDXt_CPbK6s-3UzV6l8kMyRveNjtrMmk4SC3UHr635KLHqKdl7mI/exec';
+
+// ============================================================
+// STATE
+// ============================================================
+let db = { meta: { version: 1, lastQuoteId: 0, updatedAt: '' }, quotes: [] };
+let editingId = null;
+let currentTags = [];
+let pendingDeleteId = null;
+let currentView = 'all';
+
+// ============================================================
+// INDEXEDDB
+// ============================================================
+const IDB_NAME = 'quotes-db';
+const IDB_VER  = 1;
+let idb = null;
+
+function openDB() {
+  return new Promise((res, rej) => {
+    const req = indexedDB.open(IDB_NAME, IDB_VER);
+    req.onupgradeneeded = e => {
+      const db = e.target.result;
+      if (!db.objectStoreNames.contains('quotes'))    db.createObjectStore('quotes', { keyPath: 'id' });
+      if (!db.objectStoreNames.contains('settings'))  db.createObjectStore('settings', { keyPath: 'key' });
+      if (!db.objectStoreNames.contains('syncQueue')) db.createObjectStore('syncQueue', { keyPath: 'ts' });
+    };
+    req.onsuccess = e => res(e.target.result);
+    req.onerror   = e => rej(e.target.error);
+  });
+}
+
+function idbGetAll(store) {
+  return new Promise((res, rej) => {
+    const tx = idb.transaction(store, 'readonly');
+    const req = tx.objectStore(store).getAll();
+    req.onsuccess = () => res(req.result);
+    req.onerror   = () => rej(req.error);
+  });
+}
+
+function idbPut(store, value) {
+  return new Promise((res, rej) => {
+    const tx = idb.transaction(store, 'readwrite');
+    const req = tx.objectStore(store).put(value);
+    req.onsuccess = () => res();
+    req.onerror   = () => rej(req.error);
+  });
+}
+
+function idbDelete(store, key) {
+  return new Promise((res, rej) => {
+    const tx = idb.transaction(store, 'readwrite');
+    const req = tx.objectStore(store).delete(key);
+    req.onsuccess = () => res();
+    req.onerror   = () => rej(req.error);
+  });
+}
+
+function idbClear(store) {
+  return new Promise((res, rej) => {
+    const tx = idb.transaction(store, 'readwrite');
+    const req = tx.objectStore(store).clear();
+    req.onsuccess = () => res();
+    req.onerror   = () => rej(req.error);
+  });
+}
+
+async function saveDbToIDB() {
+  await idbClear('quotes');
+  for (const q of db.quotes) await idbPut('quotes', q);
+  await idbPut('settings', { key: 'meta', value: db.meta });
+}
+
+async function loadDbFromIDB() {
+  const quotes = await idbGetAll('quotes');
+  const metaRec = await (async () => {
+    return new Promise(res => {
+      const tx = idb.transaction('settings', 'readonly');
+      const req = tx.objectStore('settings').get('meta');
+      req.onsuccess = () => res(req.result);
+      req.onerror   = () => res(null);
+    });
+  })();
+  if (quotes.length > 0 || metaRec) {
+    db.quotes = quotes.sort((a, b) => a.id - b.id);
+    if (metaRec) db.meta = metaRec.value;
+  }
+}
+
+async function enqueue(op) {
+  await idbPut('syncQueue', { ts: Date.now(), ...op });
+}
+
+async function flushQueue() {
+  const queue = await idbGetAll('syncQueue');
+  if (!queue.length) return;
+  setSyncStatus('syncing');
+  for (const op of queue) {
+    let ok = false;
+    if (op.action === 'createQuote') ok = await gasPost(op);
+    else if (op.action === 'updateQuote') ok = await gasPost(op);
+    else if (op.action === 'deleteQuote') ok = await gasPost(op);
+    if (ok) await idbDelete('syncQueue', op.ts);
+  }
+  setSyncStatus('ok');
+}
+
+// ============================================================
+// GAS API
+// ============================================================
+async function gasGet(params = {}) {
+  const url = new URL(GAS_URL);
+  Object.entries(params).forEach(([k, v]) => url.searchParams.set(k, v));
+  try {
+    const r = await fetch(url.toString());
+    return await r.json();
+  } catch { return { success: false, error: 'offline' }; }
+}
+
+async function gasPost(body) {
+  try {
+    const r = await fetch(GAS_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(body),
+    });
+    const data = await r.json();
+    return data.success ? data : false;
+  } catch { return false; }
+}
+
+// ============================================================
+// SYNC
+// ============================================================
+function setSyncStatus(status) {
+  const dot = document.getElementById('syncDot');
+  dot.className = 'sync-dot ' + status;
+}
+
+async function syncFromRemote() {
+  setSyncStatus('syncing');
+  const result = await gasGet({ action: 'getData' });
+  if (result.success && result.data) {
+    db = result.data;
+    await saveDbToIDB();
+    renderAll();
+    setSyncStatus('ok');
+    toast('Sincronizado.');
+  } else {
+    setSyncStatus('error');
+    toast('Erro ao sincronizar. Usando dados locais.', true);
+  }
+}
+
+// ============================================================
+// CRUD (local-first)
+// ============================================================
+async function createQuote(payload) {
+  if (navigator.onLine) {
+    const result = await gasPost({ action: 'createQuote', ...payload });
+    if (result) {
+      db.quotes.push(result.data);
+      db.meta.lastQuoteId = result.data.id;
+      await saveDbToIDB();
+      renderAll();
+      toast('Citação salva.');
+      return;
+    }
+  }
+  // offline fallback
+  const now = new Date().toISOString();
+  db.meta.lastQuoteId += 1;
+  const q = { id: db.meta.lastQuoteId, ...payload, createdAt: now, updatedAt: now };
+  db.quotes.push(q);
+  await saveDbToIDB();
+  await enqueue({ action: 'createQuote', ...payload });
+  renderAll();
+  toast('Salvo offline. Será sincronizado ao reconectar.');
+}
+
+async function editQuote(id, payload) {
+  const idx = db.quotes.findIndex(q => q.id === id);
+  if (idx === -1) return;
+  if (navigator.onLine) {
+    const result = await gasPost({ action: 'updateQuote', id, ...payload });
+    if (result) {
+      db.quotes[idx] = result.data;
+      await saveDbToIDB();
+      renderAll();
+      toast('Citação atualizada.');
+      return;
+    }
+  }
+  Object.assign(db.quotes[idx], payload, { updatedAt: new Date().toISOString() });
+  await saveDbToIDB();
+  await enqueue({ action: 'updateQuote', id, ...payload });
+  renderAll();
+  toast('Atualizado offline.');
+}
+
+async function removeQuote(id) {
+  if (navigator.onLine) {
+    const result = await gasPost({ action: 'deleteQuote', id });
+    if (result) {
+      db.quotes = db.quotes.filter(q => q.id !== id);
+      await saveDbToIDB();
+      renderAll();
+      toast('Citação excluída.');
+      return;
+    }
+  }
+  db.quotes = db.quotes.filter(q => q.id !== id);
+  await saveDbToIDB();
+  await enqueue({ action: 'deleteQuote', id });
+  renderAll();
+  toast('Excluído offline.');
+}
+
+// ============================================================
+// SEARCH
+// ============================================================
+function filterQuotes(query) {
+  if (!query.trim()) return db.quotes;
+  const q = query.toLowerCase();
+  return db.quotes.filter(quote =>
+    quote.text.toLowerCase().includes(q) ||
+    quote.author.toLowerCase().includes(q) ||
+    (quote.source || '').toLowerCase().includes(q) ||
+    (quote.tags || []).some(t => t.toLowerCase().includes(q)) ||
+    String(quote.id) === q
+  );
+}
+
+function highlight(text, query) {
+  if (!query.trim()) return escHtml(text);
+  const escaped = escHtml(text);
+  const q = escHtml(query.trim()).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  return escaped.replace(new RegExp(`(${q})`, 'gi'), '<mark>$1</mark>');
+}
+
+// ============================================================
+// RENDER
+// ============================================================
+function renderAll() {
+  renderList();
+  renderSpotlight();
+  renderRandom();
+  renderStats();
+  updateCount();
+}
+
+function updateCount() {
+  const el = document.getElementById('quoteCount');
+  const n = db.quotes.length;
+  el.textContent = `${n} citaç${n === 1 ? 'ão' : 'ões'}`;
+}
+
+function renderList(query = '') {
+  const list = document.getElementById('quotesList');
+  const quotes = filterQuotes(query);
+
+  if (!quotes.length) {
+    list.innerHTML = `<div class="empty-state">
+      <div class="empty-state-icon">❝</div>
+      <p>${query ? 'Nenhum resultado para <strong>' + escHtml(query) + '</strong>.' : 'Nenhuma citação ainda.<br>Clique em <strong>+</strong> para adicionar a primeira.'}</p>
+    </div>`;
+    return;
+  }
+
+  list.innerHTML = quotes.slice().reverse().map(q => `
+    <div class="quote-item" data-id="${q.id}">
+      <span class="quote-item-id">#${q.id}</span>
+      <div class="quote-item-body">
+        <p class="quote-item-text">${highlight(q.text, query)}</p>
+        <div class="quote-item-meta">
+          <span class="quote-item-author">${highlight(q.author, query)}</span>
+          ${q.source ? `<span class="quote-item-source">${highlight(q.source, query)}</span>` : ''}
+        </div>
+        ${q.tags && q.tags.length ? `<div class="quote-tags">${q.tags.map(t => `<span class="tag">${escHtml(t)}</span>`).join('')}</div>` : ''}
+      </div>
+      <div class="quote-item-actions">
+        <button class="btn-small" onclick="openEditModal(${q.id})">Editar</button>
+        <button class="btn-small danger" onclick="confirmDelete(${q.id})">Excluir</button>
+      </div>
+    </div>
+  `).join('');
+}
+
+function renderSpotlight() {
+  const el = document.getElementById('spotlightContent');
+  const last = db.quotes[db.quotes.length - 1];
+  if (!last) {
+    el.innerHTML = `<div style="color:var(--muted);font-family:var(--f-mono);font-size:0.875rem;padding-top:20vh">Nenhuma citação ainda.</div>`;
+    return;
+  }
+  el.innerHTML = `
+    <div class="spotlight-id">ÚLTIMA · #${last.id}</div>
+    <p class="spotlight-text">"${escHtml(last.text)}"</p>
+    <p class="spotlight-author">${escHtml(last.author)}</p>
+    ${last.source ? `<p class="spotlight-source">${escHtml(last.source)}</p>` : ''}
+  `;
+}
+
+let randomIndex = -1;
+function renderRandom(pick = false) {
+  const el = document.getElementById('randomContent');
+  if (!db.quotes.length) {
+    el.innerHTML = `<div style="color:var(--muted);font-family:var(--f-mono);font-size:0.875rem">Nenhuma citação ainda.</div>`;
+    return;
+  }
+  if (pick || randomIndex === -1) {
+    let next;
+    do { next = Math.floor(Math.random() * db.quotes.length); }
+    while (next === randomIndex && db.quotes.length > 1);
+    randomIndex = next;
+  }
+  const q = db.quotes[randomIndex];
+  el.innerHTML = `
+    <p class="random-quote-text">"${escHtml(q.text)}"</p>
+    <div class="random-meta">
+      <p class="random-author">${escHtml(q.author)}</p>
+      ${q.source ? `<p class="random-source">${escHtml(q.source)}</p>` : ''}
+    </div>
+    <button class="btn-random" onclick="renderRandom(true)">Nova Aleatória</button>
+  `;
+}
+
+function renderStats() {
+  const el = document.getElementById('statsContent');
+  const quotes = db.quotes;
+
+  if (!quotes.length) {
+    el.innerHTML = '<p style="color:var(--muted);font-size:0.9375rem">Nenhuma citação ainda.</p>';
+    return;
+  }
+
+  const authors = [...new Set(quotes.map(q => q.author))];
+  const tags    = [...new Set(quotes.flatMap(q => q.tags || []))];
+  const dates   = quotes.map(q => q.createdAt).sort();
+
+  // Author ranking
+  const authorCount = {};
+  quotes.forEach(q => { authorCount[q.author] = (authorCount[q.author] || 0) + 1; });
+  const topAuthors = Object.entries(authorCount).sort((a, b) => b[1] - a[1]).slice(0, 10);
+  const maxAuthor  = topAuthors[0]?.[1] || 1;
+
+  // Tag ranking
+  const tagCount = {};
+  quotes.forEach(q => (q.tags || []).forEach(t => { tagCount[t] = (tagCount[t] || 0) + 1; }));
+  const topTags = Object.entries(tagCount).sort((a, b) => b[1] - a[1]).slice(0, 10);
+  const maxTag  = topTags[0]?.[1] || 1;
+
+  // Timeline
+  const timeline = {};
+  quotes.forEach(q => {
+    const key = q.createdAt?.slice(0, 7) || '????-??';
+    timeline[key] = (timeline[key] || 0) + 1;
+  });
+  const tlKeys = Object.keys(timeline).sort().slice(-12);
+  const maxTL  = Math.max(...tlKeys.map(k => timeline[k]), 1);
+
+  const fmt = iso => iso ? new Date(iso).toLocaleDateString('pt-BR', { day:'2-digit', month:'short', year:'numeric' }) : '–';
+  const fmtMonth = key => {
+    const [y, m] = key.split('-');
+    return new Date(+y, +m - 1).toLocaleDateString('pt-BR', { month: 'short', year: '2-digit' });
+  };
+
+  el.innerHTML = `
+    <div class="stats-grid">
+      <div class="stat-card">
+        <p class="stat-label">Total</p>
+        <p class="stat-value accent">${quotes.length}</p>
+      </div>
+      <div class="stat-card">
+        <p class="stat-label">Autores</p>
+        <p class="stat-value">${authors.length}</p>
+      </div>
+      <div class="stat-card">
+        <p class="stat-label">Tags</p>
+        <p class="stat-value">${tags.length}</p>
+      </div>
+      <div class="stat-card">
+        <p class="stat-label">Primeira</p>
+        <p class="stat-value" style="font-size:1.25rem;font-family:var(--f-body)">${fmt(dates[0])}</p>
+      </div>
+      <div class="stat-card">
+        <p class="stat-label">Última</p>
+        <p class="stat-value" style="font-size:1.25rem;font-family:var(--f-body)">${fmt(dates[dates.length - 1])}</p>
+      </div>
+    </div>
+
+    <div class="stats-section">
+      <p class="stats-section-title">Top Autores</p>
+      <div class="ranking-list">
+        ${topAuthors.map(([name, count], i) => `
+          <div class="ranking-item">
+            <span class="ranking-pos">${String(i + 1).padStart(2, '0')}</span>
+            <span class="ranking-name">${escHtml(name)}</span>
+            <div class="ranking-bar-wrap"><div class="ranking-bar" style="width:${(count / maxAuthor * 100).toFixed(0)}%"></div></div>
+            <span class="ranking-count">${count}</span>
+          </div>
+        `).join('')}
+      </div>
+    </div>
+
+    ${topTags.length ? `
+    <div class="stats-section">
+      <p class="stats-section-title">Top Tags</p>
+      <div class="ranking-list">
+        ${topTags.map(([tag, count], i) => `
+          <div class="ranking-item">
+            <span class="ranking-pos">${String(i + 1).padStart(2, '0')}</span>
+            <span class="ranking-name" style="font-family:var(--f-mono);font-size:0.875rem">${escHtml(tag)}</span>
+            <div class="ranking-bar-wrap"><div class="ranking-bar" style="width:${(count / maxTag * 100).toFixed(0)}%"></div></div>
+            <span class="ranking-count">${count}</span>
+          </div>
+        `).join('')}
+      </div>
+    </div>` : ''}
+
+    ${tlKeys.length > 1 ? `
+    <div class="stats-section">
+      <p class="stats-section-title">Timeline</p>
+      <div class="timeline-chart">
+        ${tlKeys.map(k => `
+          <div class="timeline-row">
+            <span class="timeline-month">${fmtMonth(k)}</span>
+            <div class="timeline-bar-wrap">
+              <div class="timeline-bar" style="width:${(timeline[k] / maxTL * 100).toFixed(0)}%"></div>
+            </div>
+            <span class="timeline-val">${timeline[k]}</span>
+          </div>
+        `).join('')}
+      </div>
+    </div>` : ''}
+  `;
+}
+
+// ============================================================
+// MODAL
+// ============================================================
+function openAddModal() {
+  editingId = null;
+  currentTags = [];
+  document.getElementById('modalTitle').textContent = 'Nova Citação';
+  document.getElementById('fText').value = '';
+  document.getElementById('fAuthor').value = '';
+  document.getElementById('fSource').value = '';
+  document.getElementById('tagsInput').value = '';
+  renderTagChips();
+  document.getElementById('modalOverlay').classList.add('open');
+  document.getElementById('fText').focus();
+}
+
+function openEditModal(id) {
+  const q = db.quotes.find(q => q.id === id);
+  if (!q) return;
+  editingId = id;
+  currentTags = [...(q.tags || [])];
+  document.getElementById('modalTitle').textContent = 'Editar Citação';
+  document.getElementById('fText').value = q.text;
+  document.getElementById('fAuthor').value = q.author;
+  document.getElementById('fSource').value = q.source || '';
+  document.getElementById('tagsInput').value = '';
+  renderTagChips();
+  document.getElementById('modalOverlay').classList.add('open');
+  document.getElementById('fText').focus();
+}
+
+function closeModal() {
+  document.getElementById('modalOverlay').classList.remove('open');
+  closeAC('authorAC');
+  closeAC('tagAC');
+}
+
+async function saveModal() {
+  const text   = document.getElementById('fText').value.trim();
+  const author = document.getElementById('fAuthor').value.trim();
+  const source = document.getElementById('fSource').value.trim();
+  const tags   = [...currentTags];
+
+  if (!text || !author) {
+    toast('Citação e Autor são obrigatórios.', true);
+    return;
+  }
+
+  const btn = document.getElementById('modalSave');
+  btn.disabled = true;
+  btn.textContent = 'Salvando…';
+
+  if (editingId) {
+    await editQuote(editingId, { text, author, source, tags });
+  } else {
+    await createQuote({ text, author, source, tags });
+  }
+
+  btn.disabled = false;
+  btn.textContent = 'Salvar';
+  closeModal();
+}
+
+// ============================================================
+// AUTOCOMPLETE — Author
+// ============================================================
+function getAuthors() {
+  return [...new Set(db.quotes.map(q => q.author))].sort();
+}
+
+function showAuthorAC(val) {
+  const list = document.getElementById('authorAC');
+  const matches = getAuthors().filter(a => a.toLowerCase().includes(val.toLowerCase()) && a !== val);
+  if (!val || !matches.length) { closeAC('authorAC'); return; }
+  list.innerHTML = matches.slice(0, 8).map(a =>
+    `<div class="autocomplete-item" onmousedown="pickAuthor('${escAtr(a)}')">${escHtml(a)}</div>`
+  ).join('');
+  list.classList.add('open');
+}
+
+function pickAuthor(val) {
+  document.getElementById('fAuthor').value = val;
+  closeAC('authorAC');
+}
+
+// ============================================================
+// AUTOCOMPLETE — Tags
+// ============================================================
+function getAllTags() {
+  return [...new Set(db.quotes.flatMap(q => q.tags || []))].sort();
+}
+
+function renderTagChips() {
+  const wrap = document.getElementById('tagsWrap');
+  const input = document.getElementById('tagsInput');
+  wrap.querySelectorAll('.tag-chip').forEach(el => el.remove());
+  currentTags.forEach((t, i) => {
+    const chip = document.createElement('span');
+    chip.className = 'tag-chip';
+    chip.innerHTML = `${escHtml(t)}<button class="tag-chip-remove" onmousedown="removeTag(${i})">×</button>`;
+    wrap.insertBefore(chip, input);
+  });
+}
+
+function removeTag(i) {
+  currentTags.splice(i, 1);
+  renderTagChips();
+}
+
+function addTag(tag) {
+  const t = tag.trim();
+  if (t && !currentTags.includes(t)) {
+    currentTags.push(t);
+    renderTagChips();
+  }
+  document.getElementById('tagsInput').value = '';
+  closeAC('tagAC');
+}
+
+function showTagAC(val) {
+  const list = document.getElementById('tagAC');
+  const matches = getAllTags().filter(t =>
+    t.toLowerCase().includes(val.toLowerCase()) && !currentTags.includes(t)
+  );
+  if (!val || !matches.length) { closeAC('tagAC'); return; }
+  list.innerHTML = matches.slice(0, 8).map(t =>
+    `<div class="autocomplete-item" onmousedown="addTag('${escAtr(t)}')">${escHtml(t)}</div>`
+  ).join('');
+  list.classList.add('open');
+}
+
+function closeAC(id) {
+  document.getElementById(id)?.classList.remove('open');
+}
+
+// ============================================================
+// DELETE CONFIRM
+// ============================================================
+function confirmDelete(id) {
+  pendingDeleteId = id;
+  document.getElementById('confirmOverlay').classList.add('open');
+}
+
+// ============================================================
+// IMPORT / EXPORT
+// ============================================================
+function exportJSON() {
+  const blob = new Blob([JSON.stringify(db, null, 2)], { type: 'application/json' });
+  downloadBlob(blob, 'quotes.json');
+  toast('JSON exportado.');
+}
+
+async function exportMarkdown() {
+  if (navigator.onLine) {
+    const result = await gasPost({ action: 'exportMarkdown' });
+    if (result && result.data?.markdown) {
+      const blob = new Blob([result.data.markdown], { type: 'text/markdown' });
+      downloadBlob(blob, 'quotes.md');
+      toast('Markdown exportado.');
+      return;
+    }
+  }
+  // fallback: local generation
+  const byAuthor = {};
+  db.quotes.forEach(q => {
+    if (!byAuthor[q.author]) byAuthor[q.author] = [];
+    byAuthor[q.author].push(q);
+  });
+  let md = '';
+  Object.keys(byAuthor).sort().forEach(author => {
+    md += `# ${author}\n\n`;
+    byAuthor[author].forEach(q => {
+      md += `## #${q.id}\n\n> ${q.text}\n\n`;
+      if (q.source) md += `Fonte: ${q.source}\n\n`;
+      if (q.tags?.length) md += `Tags: ${q.tags.join(', ')}\n\n`;
+      md += '---\n\n';
+    });
+  });
+  downloadBlob(new Blob([md], { type: 'text/markdown' }), 'quotes.md');
+  toast('Markdown exportado (local).');
+}
+
+function downloadBlob(blob, name) {
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url; a.download = name;
+  a.click();
+  URL.revokeObjectURL(url);
+}
+
+function importJSON(file) {
+  const reader = new FileReader();
+  reader.onload = async e => {
+    try {
+      const parsed = JSON.parse(e.target.result);
+      if (!parsed.meta || !Array.isArray(parsed.quotes)) {
+        toast('Formato inválido. O JSON deve ter meta e quotes.', true);
+        return;
+      }
+      db = parsed;
+      await saveDbToIDB();
+      renderAll();
+      toast(`${db.quotes.length} citações importadas.`);
+    } catch {
+      toast('Erro ao ler o arquivo JSON.', true);
+    }
+  };
+  reader.readAsText(file);
+}
+
+// ============================================================
+// TOAST
+// ============================================================
+function toast(msg, isError = false) {
+  const wrap = document.getElementById('toastWrap');
+  const el = document.createElement('div');
+  el.className = 'toast' + (isError ? ' error' : '');
+  el.textContent = msg;
+  wrap.appendChild(el);
+  setTimeout(() => el.remove(), 3100);
+}
+
+// ============================================================
+// UTILS
+// ============================================================
+function escHtml(s) {
+  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+function escAtr(s) {
+  return String(s).replace(/'/g, "\\'").replace(/"/g, '&quot;');
+}
+
+// ============================================================
+// NAVIGATION
+// ============================================================
+function switchView(name) {
+  currentView = name;
+  document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
+  document.getElementById(`view-${name}`)?.classList.add('active');
+  document.querySelectorAll('.nav-tab, .mobile-tab').forEach(t => {
+    t.classList.toggle('active', t.dataset.view === name);
+  });
+  if (name === 'random') renderRandom(false);
+  if (name === 'stats') renderStats();
+}
+
+// ============================================================
+// THEME
+// ============================================================
+function toggleTheme() {
+  const dark = document.documentElement.getAttribute('data-theme') === 'dark';
+  document.documentElement.setAttribute('data-theme', dark ? '' : 'dark');
+  localStorage.setItem('quotes-theme', dark ? 'light' : 'dark');
+}
+
+function loadTheme() {
+  const t = localStorage.getItem('quotes-theme') || 'light';
+  if (t === 'dark') document.documentElement.setAttribute('data-theme', 'dark');
+}
+
+// ============================================================
+// EVENT WIRING
+// ============================================================
+function wireEvents() {
+  // Nav tabs
+  document.querySelectorAll('.nav-tab, .mobile-tab').forEach(tab => {
+    tab.addEventListener('click', () => switchView(tab.dataset.view));
+  });
+
+  // FAB
+  document.getElementById('fabAdd').addEventListener('click', openAddModal);
+
+  // Modal close
+  document.getElementById('modalClose').addEventListener('click', closeModal);
+  document.getElementById('modalCancel').addEventListener('click', closeModal);
+  document.getElementById('modalSave').addEventListener('click', saveModal);
+  document.getElementById('modalOverlay').addEventListener('click', e => {
+    if (e.target === e.currentTarget) closeModal();
+  });
+
+  // Modal keyboard
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') {
+      closeModal();
+      document.getElementById('confirmOverlay').classList.remove('open');
+    }
+    if ((e.metaKey || e.ctrlKey) && e.key === 'Enter') {
+      if (document.getElementById('modalOverlay').classList.contains('open')) saveModal();
+    }
+  });
+
+  // Author autocomplete
+  document.getElementById('fAuthor').addEventListener('input', e => showAuthorAC(e.target.value));
+  document.getElementById('fAuthor').addEventListener('blur', () => setTimeout(() => closeAC('authorAC'), 150));
+
+  // Tags input
+  const tagsInput = document.getElementById('tagsInput');
+  tagsInput.addEventListener('input', e => showTagAC(e.target.value));
+  tagsInput.addEventListener('keydown', e => {
+    if ((e.key === 'Enter' || e.key === ',') && tagsInput.value.trim()) {
+      e.preventDefault();
+      addTag(tagsInput.value.replace(',', ''));
+    } else if (e.key === 'Backspace' && !tagsInput.value && currentTags.length) {
+      currentTags.pop();
+      renderTagChips();
+    }
+  });
+  tagsInput.addEventListener('blur', () => {
+    if (tagsInput.value.trim()) addTag(tagsInput.value);
+    setTimeout(() => closeAC('tagAC'), 150);
+  });
+  document.getElementById('tagsWrap').addEventListener('click', () => tagsInput.focus());
+
+  // Search
+  document.getElementById('searchInput').addEventListener('input', e => {
+    renderList(e.target.value);
+  });
+
+  // Confirm dialog
+  document.getElementById('confirmNo').addEventListener('click', () => {
+    document.getElementById('confirmOverlay').classList.remove('open');
+    pendingDeleteId = null;
+  });
+  document.getElementById('confirmYes').addEventListener('click', async () => {
+    document.getElementById('confirmOverlay').classList.remove('open');
+    if (pendingDeleteId !== null) await removeQuote(pendingDeleteId);
+    pendingDeleteId = null;
+  });
+
+  // Sync
+  document.getElementById('btnSync').addEventListener('click', syncFromRemote);
+
+  // Theme
+  document.getElementById('btnTheme').addEventListener('click', toggleTheme);
+
+  // Import
+  document.getElementById('btnImport').addEventListener('click', () => document.getElementById('fileInput').click());
+  document.getElementById('fileInput').addEventListener('change', e => {
+    if (e.target.files[0]) importJSON(e.target.files[0]);
+    e.target.value = '';
+  });
+
+  // Export
+  document.getElementById('btnExportJSON').addEventListener('click', exportJSON);
+  document.getElementById('btnExportMD').addEventListener('click', exportMarkdown);
+
+  // Online/offline
+  window.addEventListener('online', async () => {
+    toast('Reconectado. Sincronizando…');
+    await flushQueue();
+    await syncFromRemote();
+  });
+  window.addEventListener('offline', () => {
+    setSyncStatus('error');
+    toast('Offline. Operações serão sincronizadas ao reconectar.', true);
+  });
+}
+
+// ============================================================
+// BOOT
+// ============================================================
+async function boot() {
+  loadTheme();
+  idb = await openDB();
+  await loadDbFromIDB();
+  renderAll();
+  wireEvents();
+
+  // Register service worker
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/service-worker.js').catch(() => {});
+  }
+
+  // Sync on load if online
+  if (navigator.onLine && GAS_URL !== 'YOUR_GAS_DEPLOYMENT_URL_HERE') {
+    await flushQueue();
+    await syncFromRemote();
+  } else if (!navigator.onLine) {
+    setSyncStatus('error');
+  }
+}
+
+boot();
+</script>
+</body>
+</html>
