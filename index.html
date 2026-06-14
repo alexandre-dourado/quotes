@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#111111">
+<meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <title>Quotes</title>
@@ -1268,10 +1269,13 @@ async function gasGet(params = {}) {
 
 async function gasPost(body) {
   try {
+    // GAS ignores OPTIONS preflight, so avoid triggering it:
+    // URLSearchParams (form-urlencoded) is a "simple" request → no preflight → no CORS block.
+    const form = new URLSearchParams();
+    form.set('payload', JSON.stringify(body));
     const r = await fetch(GAS_URL, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(body),
+      body: form,
     });
     const data = await r.json();
     return data.success ? data : false;
