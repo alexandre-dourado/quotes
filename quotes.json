@@ -1,8 +1,2086 @@
 {
   "meta": {
     "version": 1,
-    "lastQuoteId": 0,
-    "updatedAt": "2026-06-14T07:52:07.269Z"
+    "lastQuoteId": 160,
+    "updatedAt": "2026-06-14T08:11:19.754Z"
   },
-  "quotes": []
+  "quotes": [
+    {
+      "id": 1,
+      "text": "Intelligence is knowing Frankenstein is not the monster, but knowledge is knowing he is.",
+      "author": "Anônimo",
+      "source": "",
+      "tags": [
+        "conhecimento",
+        "ironia"
+      ],
+      "createdAt": "2026-06-14T12:00:00Z",
+      "updatedAt": "2026-06-14T12:00:00Z"
+    },
+    {
+      "id": 2,
+      "text": "If you're constantly in a state of placidity, satisfaction and happiness, then nothing is going to affect you deeply enough. Not your own suffering, not the suffering of other people, not injustice, not the horrors of the world. Nothing's going to affect you deeply enough so that you'll become deep. And life without depth is by definition, shallow and meaningless and there's a problem that's associated with that... because life is tragic and because life involves suffering if your philosophy is shallow and meaningless when you suffer, you'll become resentful, and hostile, and self critical and then you'll become cruel, and destructive.",
+      "author": "Jordan Peterson",
+      "source": "",
+      "tags": [
+        "sofrimento",
+        "profundidade",
+        "filosofia",
+        "psicologia"
+      ],
+      "createdAt": "2026-06-14T12:00:00Z",
+      "updatedAt": "2026-06-14T12:00:00Z"
+    },
+    {
+      "id": 3,
+      "text": "Ser racional é não perder o senso das proporções",
+      "author": "Thiago Amorim",
+      "source": "",
+      "tags": [
+        "razão",
+        "equilíbrio"
+      ],
+      "createdAt": "2026-06-14T12:00:00Z",
+      "updatedAt": "2026-06-14T12:00:00Z"
+    },
+    {
+      "id": 4,
+      "text": "A mente não deve ser modificada pelo tempo e pelo lugar. / A mente é o seu próprio lugar, e dentro de si / Pode fazer um inferno do céu, do céu um inferno.",
+      "author": "John Milton",
+      "source": "",
+      "tags": [
+        "mente",
+        "filosofia",
+        "poesia"
+      ],
+      "createdAt": "2026-06-14T12:00:00Z",
+      "updatedAt": "2026-06-14T12:00:00Z"
+    },
+    {
+      "id": 5,
+      "text": "When you want something you've never had, you have to do something you've never done.",
+      "author": "Anônimo",
+      "source": "",
+      "tags": [
+        "ação",
+        "mudança"
+      ],
+      "createdAt": "2026-06-14T12:00:00Z",
+      "updatedAt": "2026-06-14T12:00:00Z"
+    },
+    {
+      "id": 6,
+      "text": "It doesn't take talent to practice",
+      "author": "Anônimo",
+      "source": "",
+      "tags": [
+        "disciplina",
+        "prática"
+      ],
+      "createdAt": "2026-06-14T12:00:00Z",
+      "updatedAt": "2026-06-14T12:00:00Z"
+    },
+    {
+      "id": 7,
+      "text": "If you are willing to look at another person's behavior toward you as a reflection of the state of their relationship with themselves rather than a statement about your value as a person, then you will, over a period of time cease to react at all.",
+      "author": "Yogi Bhajan",
+      "source": "",
+      "tags": [
+        "autoconhecimento",
+        "relacionamentos",
+        "ego"
+      ],
+      "createdAt": "2026-06-14T12:00:00Z",
+      "updatedAt": "2026-06-14T12:00:00Z"
+    },
+    {
+      "id": 8,
+      "text": "If you see something wrong in the world, complaining is to miss the mark. Meet the world's problems with creativity. Create the solution.",
+      "author": "Erick Godsey",
+      "source": "",
+      "tags": [
+        "criatividade",
+        "ação",
+        "responsabilidade"
+      ],
+      "createdAt": "2026-06-14T12:00:00Z",
+      "updatedAt": "2026-06-14T12:00:00Z"
+    },
+    {
+      "id": 9,
+      "text": "As a single footstep will not make a path on the earth, so a single thought will not make a pathway in the mind. To make a deep physical path, we walk again and again. To make a deep mental path, we must think over and over the kind of thoughts we wish to dominate our lives",
+      "author": "Henry David Thoreau",
+      "source": "",
+      "tags": [
+        "hábito",
+        "mente",
+        "disciplina"
+      ],
+      "createdAt": "2026-06-14T12:00:00Z",
+      "updatedAt": "2026-06-14T12:00:00Z"
+    },
+    {
+      "id": 10,
+      "text": "Be fearless in the pursuit of what sets your soul in fire",
+      "author": "Jennifer Lee",
+      "source": "",
+      "tags": [
+        "coragem",
+        "propósito"
+      ],
+      "createdAt": "2026-06-14T12:00:00Z",
+      "updatedAt": "2026-06-14T12:00:00Z"
+    },
+    {
+      "id": 11,
+      "text": "A man can succeed at almost anything for which he has unlimited enthusiasm.",
+      "author": "Charles M. Schwab",
+      "source": "",
+      "tags": [
+        "entusiasmo",
+        "sucesso"
+      ],
+      "createdAt": "2026-06-14T12:00:00Z",
+      "updatedAt": "2026-06-14T12:00:00Z"
+    },
+    {
+      "id": 12,
+      "text": "The more pleasures you cultivate the more masters you serve",
+      "author": "Sêneca",
+      "source": "",
+      "tags": [
+        "estoicismo",
+        "desejo",
+        "liberdade"
+      ],
+      "createdAt": "2026-06-14T12:00:00Z",
+      "updatedAt": "2026-06-14T12:00:00Z"
+    },
+    {
+      "id": 13,
+      "text": "Não deixe que o que você não pode fazer interfira no que você pode fazer",
+      "author": "Anônimo",
+      "source": "",
+      "tags": [
+        "ação",
+        "foco"
+      ],
+      "createdAt": "2026-06-14T12:00:00Z",
+      "updatedAt": "2026-06-14T12:00:00Z"
+    },
+    {
+      "id": 14,
+      "text": "An amateur practices until he can play it correctly, a professional practices until he can't play it incorrectly",
+      "author": "Anônimo",
+      "source": "",
+      "tags": [
+        "excelência",
+        "prática",
+        "profissionalismo"
+      ],
+      "createdAt": "2026-06-14T12:00:00Z",
+      "updatedAt": "2026-06-14T12:00:00Z"
+    },
+    {
+      "id": 15,
+      "text": "The master has failed more times than the beginner has tried",
+      "author": "Anônimo",
+      "source": "",
+      "tags": [
+        "falha",
+        "maestria",
+        "crescimento"
+      ],
+      "createdAt": "2026-06-14T12:00:00Z",
+      "updatedAt": "2026-06-14T12:00:00Z"
+    },
+    {
+      "id": 16,
+      "text": "Do you feel victory when your words cause pain?",
+      "author": "Anônimo",
+      "source": "",
+      "tags": [
+        "empatia",
+        "reflexão"
+      ],
+      "createdAt": "2026-06-14T12:00:00Z",
+      "updatedAt": "2026-06-14T12:00:00Z"
+    },
+    {
+      "id": 17,
+      "text": "No matter how big the plate in front of you is, the only way to finish it is one bite at a time.",
+      "author": "Anônimo",
+      "source": "",
+      "tags": [
+        "foco",
+        "progresso",
+        "ação"
+      ],
+      "createdAt": "2026-06-14T12:00:00Z",
+      "updatedAt": "2026-06-14T12:00:00Z"
+    },
+    {
+      "id": 18,
+      "text": "We judge ourselves by our intentions but others by their actions",
+      "author": "Anônimo",
+      "source": "",
+      "tags": [
+        "julgamento",
+        "empatia",
+        "psicologia"
+      ],
+      "createdAt": "2026-06-14T12:00:00Z",
+      "updatedAt": "2026-06-14T12:00:00Z"
+    },
+    {
+      "id": 19,
+      "text": "How you live each day is how you live your life.",
+      "author": "Anônimo",
+      "source": "",
+      "tags": [
+        "hábito",
+        "vida",
+        "filosofia"
+      ],
+      "createdAt": "2026-06-14T12:00:00Z",
+      "updatedAt": "2026-06-14T12:00:00Z"
+    },
+    {
+      "id": 20,
+      "text": "A fool is known by his speech; and a wise man by silence.",
+      "author": "Pitágoras",
+      "source": "",
+      "tags": [
+        "sabedoria",
+        "silêncio"
+      ],
+      "createdAt": "2026-06-14T12:00:00Z",
+      "updatedAt": "2026-06-14T12:00:00Z"
+    },
+    {
+      "id": 21,
+      "text": "Nothing In Life Is As Important As You Think It Is, While You Are Thinking About It.",
+      "author": "Daniel Kahneman",
+      "source": "",
+      "tags": [
+        "psicologia",
+        "perspectiva",
+        "cognição"
+      ],
+      "createdAt": "2026-06-14T12:00:00Z",
+      "updatedAt": "2026-06-14T12:00:00Z"
+    },
+    {
+      "id": 22,
+      "text": "I want to fix you because I want you to fix me.",
+      "author": "R. T. Kilgore",
+      "source": "",
+      "tags": [
+        "relacionamentos",
+        "projeção",
+        "psicologia"
+      ],
+      "createdAt": "2026-06-14T12:00:00Z",
+      "updatedAt": "2026-06-14T12:00:00Z"
+    },
+    {
+      "id": 23,
+      "text": "Se o que tens te parece insuficiente, então, mesmo que possuas o mundo, ainda assim serás miserável",
+      "author": "Sêneca",
+      "source": "",
+      "tags": [
+        "estoicismo",
+        "gratidão",
+        "suficiência"
+      ],
+      "createdAt": "2026-06-14T12:00:00Z",
+      "updatedAt": "2026-06-14T12:00:00Z"
+    },
+    {
+      "id": 24,
+      "text": "What you think of yourself is much more important than what people think of you.",
+      "author": "Sêneca",
+      "source": "",
+      "tags": [
+        "estoicismo",
+        "autoestima",
+        "opinião"
+      ],
+      "createdAt": "2026-06-14T12:00:00Z",
+      "updatedAt": "2026-06-14T12:00:00Z"
+    },
+    {
+      "id": 25,
+      "text": "Someone I loved once gave me a box full of darkness. It took me years to understand that this too, was a gift.",
+      "author": "Mary Oliver",
+      "source": "",
+      "tags": [
+        "dor",
+        "crescimento",
+        "poesia"
+      ],
+      "createdAt": "2026-06-14T12:00:00Z",
+      "updatedAt": "2026-06-14T12:00:00Z"
+    },
+    {
+      "id": 26,
+      "text": "What is the current lesson the universe is trying to teach me that I'm resisting? Why am I resisting? What can I do to 'study' and 'pass' this class?",
+      "author": "Erick Godsey",
+      "source": "",
+      "tags": [
+        "autoconhecimento",
+        "aprendizado",
+        "resistência"
+      ],
+      "createdAt": "2026-06-14T12:00:00Z",
+      "updatedAt": "2026-06-14T12:00:00Z"
+    },
+    {
+      "id": 27,
+      "text": "Comparison is the thief of joy.",
+      "author": "Theodore Roosevelt",
+      "source": "",
+      "tags": [
+        "felicidade",
+        "comparação"
+      ],
+      "createdAt": "2026-06-14T12:00:00Z",
+      "updatedAt": "2026-06-14T12:00:00Z"
+    },
+    {
+      "id": 28,
+      "text": "I must create a system (a myth) or be enslaved by another man's; I will not reason and compare: my business is to create.",
+      "author": "William Blake",
+      "source": "",
+      "tags": [
+        "criatividade",
+        "liberdade",
+        "arte"
+      ],
+      "createdAt": "2026-06-14T12:00:00Z",
+      "updatedAt": "2026-06-14T12:00:00Z"
+    },
+    {
+      "id": 29,
+      "text": "Quanto mais forte a armadura, mais frágil o ser que a habita.",
+      "author": "Anônimo",
+      "source": "",
+      "tags": [
+        "vulnerabilidade",
+        "psicologia"
+      ],
+      "createdAt": "2026-06-14T12:00:00Z",
+      "updatedAt": "2026-06-14T12:00:00Z"
+    },
+    {
+      "id": 30,
+      "text": "Never ascribe to malice that which is adequately explained by incompetence.",
+      "author": "Hanlon's Razor",
+      "source": "",
+      "tags": [
+        "lógica",
+        "julgamento",
+        "pensamento crítico"
+      ],
+      "createdAt": "2026-06-14T12:00:00Z",
+      "updatedAt": "2026-06-14T12:00:00Z"
+    },
+    {
+      "id": 31,
+      "text": "As boas intenções têm sido a ruína do mundo. As únicas pessoas que realizaram qualquer coisa foram as que não tiveram intenção alguma.",
+      "author": "Oscar Wilde",
+      "source": "",
+      "tags": [
+        "intenção",
+        "ação",
+        "ironia"
+      ],
+      "createdAt": "2026-06-14T12:00:00Z",
+      "updatedAt": "2026-06-14T12:00:00Z"
+    },
+    {
+      "id": 32,
+      "text": "Para corromper o indivíduo basta ensiná-lo a chamar 'direitos' os seus desejos pessoais e 'abusos' os direitos alheios",
+      "author": "Nicolás Gómez Dávila",
+      "source": "",
+      "tags": [
+        "política",
+        "direitos",
+        "filosofia"
+      ],
+      "createdAt": "2026-06-14T12:00:00Z",
+      "updatedAt": "2026-06-14T12:00:00Z"
+    },
+    {
+      "id": 33,
+      "text": "They think I'm crazy because I do not want to sell my days for money, and I think you are crazy, because you think my days have a price",
+      "author": "Leo",
+      "source": "",
+      "tags": [
+        "liberdade",
+        "tempo",
+        "valores"
+      ],
+      "createdAt": "2026-06-14T12:00:00Z",
+      "updatedAt": "2026-06-14T12:00:00Z"
+    },
+    {
+      "id": 34,
+      "text": "I freed a thousand slaves I could have freed a thousand more if only they knew they were slaves",
+      "author": "Harriet Tubman (atribuído)",
+      "source": "",
+      "tags": [
+        "liberdade",
+        "consciência"
+      ],
+      "createdAt": "2026-06-14T12:00:00Z",
+      "updatedAt": "2026-06-14T12:00:00Z"
+    },
+    {
+      "id": 35,
+      "text": "Quem não quer pensar, é um fanático; quem não pode pensar, é um idiota; quem não ousa pensar, é um covarde.",
+      "author": "Horace Walpole",
+      "source": "",
+      "tags": [
+        "pensamento",
+        "coragem",
+        "filosofia"
+      ],
+      "createdAt": "2026-06-14T12:00:00Z",
+      "updatedAt": "2026-06-14T12:00:00Z"
+    },
+    {
+      "id": 36,
+      "text": "Dress like you listen to Sinatra... act like you listen to Tupac",
+      "author": "Anônimo",
+      "source": "",
+      "tags": [
+        "estilo",
+        "atitude",
+        "ironia"
+      ],
+      "createdAt": "2026-06-14T12:00:00Z",
+      "updatedAt": "2026-06-14T12:00:00Z"
+    },
+    {
+      "id": 37,
+      "text": "9 mulheres grávidas não dão a luz em 1 mês",
+      "author": "Anônimo",
+      "source": "",
+      "tags": [
+        "gestão",
+        "tempo",
+        "trabalho em equipe"
+      ],
+      "createdAt": "2026-06-14T12:00:00Z",
+      "updatedAt": "2026-06-14T12:00:00Z"
+    },
+    {
+      "id": 38,
+      "text": "Good choices come from experience, and experience from bad choices",
+      "author": "Mark Twain (atribuído)",
+      "source": "",
+      "tags": [
+        "experiência",
+        "sabedoria",
+        "aprendizado"
+      ],
+      "createdAt": "2026-06-14T12:00:00Z",
+      "updatedAt": "2026-06-14T12:00:00Z"
+    },
+    {
+      "id": 39,
+      "text": "When you're good at something, you'll tell everyone. When you're great at something, they'll tell you.",
+      "author": "Walter Payton",
+      "source": "",
+      "tags": [
+        "excelência",
+        "humildade"
+      ],
+      "createdAt": "2026-06-14T12:00:00Z",
+      "updatedAt": "2026-06-14T12:00:00Z"
+    },
+    {
+      "id": 40,
+      "text": "Maybe the most important idea to embrace if you want to become who you could be is: It may not be your fault that you are who you are, but it is your responsibility to become who you could be.",
+      "author": "Erick Godsey",
+      "source": "",
+      "tags": [
+        "responsabilidade",
+        "crescimento",
+        "identidade"
+      ],
+      "createdAt": "2026-06-14T12:00:00Z",
+      "updatedAt": "2026-06-14T12:00:00Z"
+    },
+    {
+      "id": 41,
+      "text": "Os ingênuos estão na cadeia alimentar dos mal-intencionados",
+      "author": "Puggina",
+      "source": "",
+      "tags": [
+        "ingenuidade",
+        "política",
+        "poder"
+      ],
+      "createdAt": "2026-06-14T12:00:00Z",
+      "updatedAt": "2026-06-14T12:00:00Z"
+    },
+    {
+      "id": 42,
+      "text": "Telling a ugly guy to be confident is like pouring syrup on shit and calling it pancakes",
+      "author": "FACEandLMS",
+      "source": "",
+      "tags": [
+        "autoestima",
+        "realidade",
+        "ironia"
+      ],
+      "createdAt": "2026-06-14T12:00:00Z",
+      "updatedAt": "2026-06-14T12:00:00Z"
+    },
+    {
+      "id": 43,
+      "text": "There are no happy endings. Endings are the saddest part, so just give me a happy middle and a very happy start",
+      "author": "Shel Silverstein",
+      "source": "",
+      "tags": [
+        "felicidade",
+        "poesia",
+        "vida"
+      ],
+      "createdAt": "2026-06-14T12:00:00Z",
+      "updatedAt": "2026-06-14T12:00:00Z"
+    },
+    {
+      "id": 44,
+      "text": "There is something at once sobering and absurd in the extent to which we are lifted by the attentions of others and sunk by their disregard",
+      "author": "Alain de Botton",
+      "source": "",
+      "tags": [
+        "autoestima",
+        "validação",
+        "psicologia"
+      ],
+      "createdAt": "2026-06-14T12:00:00Z",
+      "updatedAt": "2026-06-14T12:00:00Z"
+    },
+    {
+      "id": 45,
+      "text": "Do you love me enough that I may be weak with you? Everyone loves strength, but do you love me for my weakness? That is the real test",
+      "author": "Alain de Botton",
+      "source": "",
+      "tags": [
+        "amor",
+        "vulnerabilidade",
+        "relacionamentos"
+      ],
+      "createdAt": "2026-06-14T12:00:00Z",
+      "updatedAt": "2026-06-14T12:00:00Z"
+    },
+    {
+      "id": 46,
+      "text": "A man who disbelieved the Christian story as fact but continually fed on it as myth would, perhaps, be more spiritually alive than one who assented and did not think much about it.",
+      "author": "C.S. Lewis",
+      "source": "",
+      "tags": [
+        "espiritualidade",
+        "mito",
+        "religião",
+        "filosofia"
+      ],
+      "createdAt": "2026-06-14T12:00:00Z",
+      "updatedAt": "2026-06-14T12:00:00Z"
+    },
+    {
+      "id": 47,
+      "text": "Beliefs inform actions and actions have consequences",
+      "author": "Anônimo",
+      "source": "",
+      "tags": [
+        "crenças",
+        "ação",
+        "consequências"
+      ],
+      "createdAt": "2026-06-14T12:00:00Z",
+      "updatedAt": "2026-06-14T12:00:00Z"
+    },
+    {
+      "id": 48,
+      "text": "Os piores escravos são aqueles que estão servindo constantemente as suas paixões",
+      "author": "Diógenes de Sinope",
+      "source": "",
+      "tags": [
+        "estoicismo",
+        "paixão",
+        "liberdade"
+      ],
+      "createdAt": "2026-06-14T12:00:00Z",
+      "updatedAt": "2026-06-14T12:00:00Z"
+    },
+    {
+      "id": 49,
+      "text": "It is the mark of an educated mind to be able to entertain a thought without accepting it.",
+      "author": "Aristóteles",
+      "source": "",
+      "tags": [
+        "educação",
+        "pensamento crítico",
+        "filosofia"
+      ],
+      "createdAt": "2026-06-14T12:00:00Z",
+      "updatedAt": "2026-06-14T12:00:00Z"
+    },
+    {
+      "id": 50,
+      "text": "We should pursue, out of all the kinds of victories, the highest one. And that's the one where both people on the side of an issue improve each other.",
+      "author": "Jordan Peterson (paráfrase)",
+      "source": "",
+      "tags": [
+        "debate",
+        "crescimento",
+        "diálogo"
+      ],
+      "createdAt": "2026-06-14T12:00:00Z",
+      "updatedAt": "2026-06-14T12:00:00Z"
+    },
+    {
+      "id": 51,
+      "text": "Só exponha seu conhecimento quando realmente puder ajudar alguém com ele, caso contrário, será simplesmente exibicionismo.",
+      "author": "Anônimo",
+      "source": "",
+      "tags": [
+        "conhecimento",
+        "humildade",
+        "sabedoria"
+      ],
+      "createdAt": "2026-06-14T12:00:00Z",
+      "updatedAt": "2026-06-14T12:00:00Z"
+    },
+    {
+      "id": 52,
+      "text": "O que faz de você um homem é sua reação quando vem a tormenta.",
+      "author": "Conde de Monte Cristo",
+      "source": "",
+      "tags": [
+        "caráter",
+        "resiliência",
+        "adversidade"
+      ],
+      "createdAt": "2026-06-14T12:00:00Z",
+      "updatedAt": "2026-06-14T12:00:00Z"
+    },
+    {
+      "id": 53,
+      "text": "The child who is not embraced by the village will burn it down to feel its warmth",
+      "author": "Provérbio Africano",
+      "source": "",
+      "tags": [
+        "infância",
+        "pertencimento",
+        "sociedade"
+      ],
+      "createdAt": "2026-06-14T12:00:00Z",
+      "updatedAt": "2026-06-14T12:00:00Z"
+    },
+    {
+      "id": 54,
+      "text": "É fácil menosprezar uma luta quando não é você que está apanhando.",
+      "author": "Anônimo",
+      "source": "",
+      "tags": [
+        "empatia",
+        "julgamento"
+      ],
+      "createdAt": "2026-06-14T12:00:00Z",
+      "updatedAt": "2026-06-14T12:00:00Z"
+    },
+    {
+      "id": 55,
+      "text": "Talvez a paz que você procure esteja no silêncio que você não faz.",
+      "author": "Anônimo",
+      "source": "",
+      "tags": [
+        "paz",
+        "silêncio",
+        "introspecção"
+      ],
+      "createdAt": "2026-06-14T12:00:00Z",
+      "updatedAt": "2026-06-14T12:00:00Z"
+    },
+    {
+      "id": 56,
+      "text": "Um argumento ruim a favor de uma ideia boa pode fazer a essa ideia mais mal do que um bom argumento contra ela.",
+      "author": "Anônimo",
+      "source": "",
+      "tags": [
+        "retórica",
+        "lógica",
+        "argumentação"
+      ],
+      "createdAt": "2026-06-14T12:00:00Z",
+      "updatedAt": "2026-06-14T12:00:00Z"
+    },
+    {
+      "id": 57,
+      "text": "Quando não somos capazes de encontrar a tranquilidade dentro de nós mesmos, é inútil procurá-la em outro lugar.",
+      "author": "François de La Rochefoucauld",
+      "source": "",
+      "tags": [
+        "paz interior",
+        "estoicismo",
+        "autoconhecimento"
+      ],
+      "createdAt": "2026-06-14T12:00:00Z",
+      "updatedAt": "2026-06-14T12:00:00Z"
+    },
+    {
+      "id": 58,
+      "text": "Ninguém é a razão da sua felicidade. Algumas pessoas contribuem, porém você é a razão.",
+      "author": "Anônimo",
+      "source": "",
+      "tags": [
+        "felicidade",
+        "responsabilidade",
+        "autoconhecimento"
+      ],
+      "createdAt": "2026-06-14T12:00:00Z",
+      "updatedAt": "2026-06-14T12:00:00Z"
+    },
+    {
+      "id": 59,
+      "text": "If an ideology is peaceful, we will see its extremists and literalists as the most peaceful people on earth, that's called common sense.",
+      "author": "Faisal Saeed Al Mutar",
+      "source": "",
+      "tags": [
+        "ideologia",
+        "extremismo",
+        "lógica"
+      ],
+      "createdAt": "2026-06-14T12:00:00Z",
+      "updatedAt": "2026-06-14T12:00:00Z"
+    },
+    {
+      "id": 60,
+      "text": "To claim that someone is not motivated by what they say is motivating them, means you know what motivates them better than they do.",
+      "author": "Peter Boghossian",
+      "source": "",
+      "tags": [
+        "motivação",
+        "epistemologia",
+        "debate"
+      ],
+      "createdAt": "2026-06-14T12:00:00Z",
+      "updatedAt": "2026-06-14T12:00:00Z"
+    },
+    {
+      "id": 61,
+      "text": "É mais fácil enganar as pessoas do que convencê-las de que foram enganadas.",
+      "author": "Mark Twain",
+      "source": "",
+      "tags": [
+        "psicologia",
+        "engano",
+        "verdade"
+      ],
+      "createdAt": "2026-06-14T12:00:00Z",
+      "updatedAt": "2026-06-14T12:00:00Z"
+    },
+    {
+      "id": 62,
+      "text": "O conhecimento serve para encantar as pessoas, não para humilhá-las.",
+      "author": "Mário Sérgio Cortella",
+      "source": "",
+      "tags": [
+        "conhecimento",
+        "humildade",
+        "educação"
+      ],
+      "createdAt": "2026-06-14T12:00:00Z",
+      "updatedAt": "2026-06-14T12:00:00Z"
+    },
+    {
+      "id": 63,
+      "text": "I'm never honest. But I never lie",
+      "author": "Hannibal",
+      "source": "Série Hannibal",
+      "tags": [
+        "verdade",
+        "honestidade",
+        "paradoxo"
+      ],
+      "createdAt": "2026-06-14T12:00:00Z",
+      "updatedAt": "2026-06-14T12:00:00Z"
+    },
+    {
+      "id": 64,
+      "text": "Happiness is a way of travel, and not a destination",
+      "author": "Anônimo",
+      "source": "",
+      "tags": [
+        "felicidade",
+        "jornada",
+        "vida"
+      ],
+      "createdAt": "2026-06-14T12:00:00Z",
+      "updatedAt": "2026-06-14T12:00:00Z"
+    },
+    {
+      "id": 65,
+      "text": "Sem grão de areia, a maioria das pessoas são apenas ostras",
+      "author": "Anônimo",
+      "source": "",
+      "tags": [
+        "adversidade",
+        "crescimento",
+        "metáfora"
+      ],
+      "createdAt": "2026-06-14T12:00:00Z",
+      "updatedAt": "2026-06-14T12:00:00Z"
+    },
+    {
+      "id": 66,
+      "text": "Se você não está disposto a aprender ninguém pode te ensinar. Se você está disposto a aprender, ninguém pode te parar.",
+      "author": "Anônimo",
+      "source": "",
+      "tags": [
+        "aprendizado",
+        "motivação",
+        "crescimento"
+      ],
+      "createdAt": "2026-06-14T12:00:00Z",
+      "updatedAt": "2026-06-14T12:00:00Z"
+    },
+    {
+      "id": 67,
+      "text": "Ser estúpido, egoísta e ter boa saúde, eis as condições ideais para se ser feliz. Mas se a primeira vos falta, tudo está perdido.",
+      "author": "Gustave Flaubert",
+      "source": "",
+      "tags": [
+        "felicidade",
+        "ironia",
+        "filosofia"
+      ],
+      "createdAt": "2026-06-14T12:00:00Z",
+      "updatedAt": "2026-06-14T12:00:00Z"
+    },
+    {
+      "id": 68,
+      "text": "A não ser que você tente algo além do que você já domina, você nunca irá crescer.",
+      "author": "Anônimo",
+      "source": "",
+      "tags": [
+        "crescimento",
+        "zona de conforto",
+        "aprendizado"
+      ],
+      "createdAt": "2026-06-14T12:00:00Z",
+      "updatedAt": "2026-06-14T12:00:00Z"
+    },
+    {
+      "id": 69,
+      "text": "Se a situação for boa, desfrute-a; se for ruim, transforme-a; se não puder ser transformada, transforme-se.",
+      "author": "Viktor Frankl",
+      "source": "",
+      "tags": [
+        "resiliência",
+        "adaptação",
+        "estoicismo"
+      ],
+      "createdAt": "2026-06-14T12:00:00Z",
+      "updatedAt": "2026-06-14T12:00:00Z"
+    },
+    {
+      "id": 70,
+      "text": "O que é o céu se não um suborno, o que é o inferno se não uma ameaça.",
+      "author": "Jorge Luis Borges",
+      "source": "",
+      "tags": [
+        "religião",
+        "filosofia",
+        "ironia"
+      ],
+      "createdAt": "2026-06-14T12:00:00Z",
+      "updatedAt": "2026-06-14T12:00:00Z"
+    },
+    {
+      "id": 71,
+      "text": "Para evitar críticas, não faça nada, não diga nada, não seja nada.",
+      "author": "Elbert Hubbard",
+      "source": "",
+      "tags": [
+        "crítica",
+        "ação",
+        "coragem"
+      ],
+      "createdAt": "2026-06-14T12:00:00Z",
+      "updatedAt": "2026-06-14T12:00:00Z"
+    },
+    {
+      "id": 72,
+      "text": "Para descobrir quem controla sua vida, simplesmente descubra quem você não tem permissão de criticar",
+      "author": "Voltaire (atribuído)",
+      "source": "",
+      "tags": [
+        "poder",
+        "liberdade",
+        "pensamento crítico"
+      ],
+      "createdAt": "2026-06-14T12:00:00Z",
+      "updatedAt": "2026-06-14T12:00:00Z"
+    },
+    {
+      "id": 73,
+      "text": "Psychics don't win the lottery, for the same reason faith healers aren't in hospitals.",
+      "author": "Anônimo",
+      "source": "",
+      "tags": [
+        "ceticismo",
+        "lógica",
+        "ironia"
+      ],
+      "createdAt": "2026-06-14T12:00:00Z",
+      "updatedAt": "2026-06-14T12:00:00Z"
+    },
+    {
+      "id": 74,
+      "text": "Quando ficar ofendido dá poder às pessoas, elas ficam ofendidas mais facilmente.",
+      "author": "John Stossel",
+      "source": "",
+      "tags": [
+        "ofensa",
+        "poder",
+        "psicologia"
+      ],
+      "createdAt": "2026-06-14T12:00:00Z",
+      "updatedAt": "2026-06-14T12:00:00Z"
+    },
+    {
+      "id": 75,
+      "text": "Seja mais forte que sua melhor desculpa",
+      "author": "Anônimo",
+      "source": "",
+      "tags": [
+        "disciplina",
+        "responsabilidade",
+        "motivação"
+      ],
+      "createdAt": "2026-06-14T12:00:00Z",
+      "updatedAt": "2026-06-14T12:00:00Z"
+    },
+    {
+      "id": 76,
+      "text": "De tanto ver triunfar as nulidades, de tanto ver prosperar a desonra, de tanto ver crescer a injustiça, de tanto ver agigantarem-se os poderes nas mãos dos maus, o homem chega a desanimar da virtude, a rir-se da honra, a ter vergonha de ser honesto.",
+      "author": "Rui Barbosa",
+      "source": "",
+      "tags": [
+        "justiça",
+        "virtude",
+        "sociedade",
+        "política"
+      ],
+      "createdAt": "2026-06-14T12:00:00Z",
+      "updatedAt": "2026-06-14T12:00:00Z"
+    },
+    {
+      "id": 77,
+      "text": "Ao vencedor não será perguntado se disse a verdade.",
+      "author": "Adolf Hitler",
+      "source": "",
+      "tags": [
+        "poder",
+        "verdade",
+        "história"
+      ],
+      "createdAt": "2026-06-14T12:00:00Z",
+      "updatedAt": "2026-06-14T12:00:00Z"
+    },
+    {
+      "id": 78,
+      "text": "Quando Pedro me fala de Paulo, sei mais de Pedro do que de Paulo.",
+      "author": "Anônimo",
+      "source": "",
+      "tags": [
+        "psicologia",
+        "projeção",
+        "comunicação"
+      ],
+      "createdAt": "2026-06-14T12:00:00Z",
+      "updatedAt": "2026-06-14T12:00:00Z"
+    },
+    {
+      "id": 79,
+      "text": "Se falta de tempo realmente fosse uma justificativa para não realizar seus projetos, somente os desocupados teriam sucesso",
+      "author": "Flávio Augusto da Silva",
+      "source": "",
+      "tags": [
+        "tempo",
+        "desculpas",
+        "sucesso"
+      ],
+      "createdAt": "2026-06-14T12:00:00Z",
+      "updatedAt": "2026-06-14T12:00:00Z"
+    },
+    {
+      "id": 80,
+      "text": "A melhor forma de você fazer alguma coisa é começar.",
+      "author": "Anônimo",
+      "source": "",
+      "tags": [
+        "ação",
+        "procrastinação",
+        "início"
+      ],
+      "createdAt": "2026-06-14T12:00:00Z",
+      "updatedAt": "2026-06-14T12:00:00Z"
+    },
+    {
+      "id": 81,
+      "text": "Quem come do fruto do conhecimento é sempre expulso de algum paraíso",
+      "author": "Melanie Klein",
+      "source": "",
+      "tags": [
+        "conhecimento",
+        "inocência",
+        "psicologia"
+      ],
+      "createdAt": "2026-06-14T12:00:00Z",
+      "updatedAt": "2026-06-14T12:00:00Z"
+    },
+    {
+      "id": 82,
+      "text": "O verdadeiro conhecimento é saber a medida da própria ignorância.",
+      "author": "Confúcio",
+      "source": "",
+      "tags": [
+        "sabedoria",
+        "ignorância",
+        "conhecimento"
+      ],
+      "createdAt": "2026-06-14T12:00:00Z",
+      "updatedAt": "2026-06-14T12:00:00Z"
+    },
+    {
+      "id": 83,
+      "text": "A ignorância frequentemente traz mais confiança do que o conhecimento.",
+      "author": "Charles Darwin",
+      "source": "",
+      "tags": [
+        "ignorância",
+        "confiança",
+        "psicologia"
+      ],
+      "createdAt": "2026-06-14T12:00:00Z",
+      "updatedAt": "2026-06-14T12:00:00Z"
+    },
+    {
+      "id": 84,
+      "text": "Não existe vento favorável para o marinheiro que não sabe aonde ir",
+      "author": "Sêneca",
+      "source": "",
+      "tags": [
+        "propósito",
+        "direção",
+        "estoicismo"
+      ],
+      "createdAt": "2026-06-14T12:00:00Z",
+      "updatedAt": "2026-06-14T12:00:00Z"
+    },
+    {
+      "id": 85,
+      "text": "A recordação da felicidade já não é felicidade; a recordação da dor ainda é dor",
+      "author": "George Gordon Byron",
+      "source": "",
+      "tags": [
+        "memória",
+        "felicidade",
+        "dor",
+        "poesia"
+      ],
+      "createdAt": "2026-06-14T12:00:00Z",
+      "updatedAt": "2026-06-14T12:00:00Z"
+    },
+    {
+      "id": 86,
+      "text": "Desconfio de todo idealista que lucra com seu ideal",
+      "author": "Millôr Fernandes",
+      "source": "",
+      "tags": [
+        "idealismo",
+        "hipocrisia",
+        "política"
+      ],
+      "createdAt": "2026-06-14T12:00:00Z",
+      "updatedAt": "2026-06-14T12:00:00Z"
+    },
+    {
+      "id": 87,
+      "text": "Que o seu medo tenha nome antes que você possa bani-lo",
+      "author": "Yoda",
+      "source": "Star Wars: O Império Contra-ataca",
+      "tags": [
+        "medo",
+        "coragem",
+        "autoconhecimento"
+      ],
+      "createdAt": "2026-06-14T12:00:00Z",
+      "updatedAt": "2026-06-14T12:00:00Z"
+    },
+    {
+      "id": 88,
+      "text": "A mediocridade é a arte de não ter inimigos.",
+      "author": "Sofocleto",
+      "source": "",
+      "tags": [
+        "mediocridade",
+        "coragem",
+        "opinião"
+      ],
+      "createdAt": "2026-06-14T12:00:00Z",
+      "updatedAt": "2026-06-14T12:00:00Z"
+    },
+    {
+      "id": 89,
+      "text": "Não me conte o que eles falaram ao meu respeito, diga-me apenas porque eles estavam tão confortáveis em dizer isso na sua frente",
+      "author": "Anônimo",
+      "source": "",
+      "tags": [
+        "lealdade",
+        "caráter",
+        "relacionamentos"
+      ],
+      "createdAt": "2026-06-14T12:00:00Z",
+      "updatedAt": "2026-06-14T12:00:00Z"
+    },
+    {
+      "id": 90,
+      "text": "Tem gente que se mata cortando os impulsos",
+      "author": "Zack Magiezi",
+      "source": "",
+      "tags": [
+        "impulso",
+        "repressão",
+        "psicologia"
+      ],
+      "createdAt": "2026-06-14T12:00:00Z",
+      "updatedAt": "2026-06-14T12:00:00Z"
+    },
+    {
+      "id": 91,
+      "text": "What is important is to spread confusion, not eliminate it.",
+      "author": "Salvador Dalí",
+      "source": "",
+      "tags": [
+        "arte",
+        "criatividade",
+        "caos"
+      ],
+      "createdAt": "2026-06-14T12:00:00Z",
+      "updatedAt": "2026-06-14T12:00:00Z"
+    },
+    {
+      "id": 92,
+      "text": "Irresponsibility is part of the pleasure of all art; it is the part the schools cannot recognize.",
+      "author": "James Joyce",
+      "source": "",
+      "tags": [
+        "arte",
+        "educação",
+        "liberdade"
+      ],
+      "createdAt": "2026-06-14T12:00:00Z",
+      "updatedAt": "2026-06-14T12:00:00Z"
+    },
+    {
+      "id": 93,
+      "text": "No book is worth reading that isn't worth re-reading.",
+      "author": "Susan Sontag",
+      "source": "",
+      "tags": [
+        "leitura",
+        "literatura",
+        "sabedoria"
+      ],
+      "createdAt": "2026-06-14T12:00:00Z",
+      "updatedAt": "2026-06-14T12:00:00Z"
+    },
+    {
+      "id": 94,
+      "text": "Nobody is smarter than you are. And what if they are? What good is their understanding doing you?",
+      "author": "Terence McKenna",
+      "source": "",
+      "tags": [
+        "autonomia",
+        "inteligência",
+        "conhecimento"
+      ],
+      "createdAt": "2026-06-14T12:00:00Z",
+      "updatedAt": "2026-06-14T12:00:00Z"
+    },
+    {
+      "id": 95,
+      "text": "I don't believe anything, but I have many suspicions.",
+      "author": "Robert Anton Wilson",
+      "source": "",
+      "tags": [
+        "ceticismo",
+        "filosofia",
+        "crença"
+      ],
+      "createdAt": "2026-06-14T12:00:00Z",
+      "updatedAt": "2026-06-14T12:00:00Z"
+    },
+    {
+      "id": 96,
+      "text": "When you are Angry, Be Silent.",
+      "author": "Bukhari",
+      "source": "",
+      "tags": [
+        "raiva",
+        "silêncio",
+        "sabedoria"
+      ],
+      "createdAt": "2026-06-14T12:00:00Z",
+      "updatedAt": "2026-06-14T12:00:00Z"
+    },
+    {
+      "id": 97,
+      "text": "Man suffers only because he takes seriously what the gods made for fun.",
+      "author": "Alan W. Watts",
+      "source": "",
+      "tags": [
+        "sofrimento",
+        "leveza",
+        "filosofia",
+        "zen"
+      ],
+      "createdAt": "2026-06-14T12:00:00Z",
+      "updatedAt": "2026-06-14T12:00:00Z"
+    },
+    {
+      "id": 98,
+      "text": "Life is too short to waste being a productive member of society.",
+      "author": "Sol Luckman",
+      "source": "",
+      "tags": [
+        "ironia",
+        "liberdade",
+        "vida"
+      ],
+      "createdAt": "2026-06-14T12:00:00Z",
+      "updatedAt": "2026-06-14T12:00:00Z"
+    },
+    {
+      "id": 99,
+      "text": "Apenas temos 2 vidas. A segunda só começa quando nos damos conta que só temos uma.",
+      "author": "Epicuro (atribuído)",
+      "source": "",
+      "tags": [
+        "vida",
+        "consciência",
+        "filosofia"
+      ],
+      "createdAt": "2026-06-14T12:00:00Z",
+      "updatedAt": "2026-06-14T12:00:00Z"
+    },
+    {
+      "id": 100,
+      "text": "If you understand, things are just as they are; if you do not understand, things are just as they are.",
+      "author": "Provérbio Zen",
+      "source": "",
+      "tags": [
+        "zen",
+        "aceitação",
+        "filosofia"
+      ],
+      "createdAt": "2026-06-14T12:00:00Z",
+      "updatedAt": "2026-06-14T12:00:00Z"
+    },
+    {
+      "id": 101,
+      "text": "Consistency is contrary to nature, contrary to life. The only completely consistent people are the dead.",
+      "author": "Aldous Huxley",
+      "source": "",
+      "tags": [
+        "mudança",
+        "vida",
+        "filosofia"
+      ],
+      "createdAt": "2026-06-14T12:00:00Z",
+      "updatedAt": "2026-06-14T12:00:00Z"
+    },
+    {
+      "id": 102,
+      "text": "In individuals, insanity is rare; but in groups, parties, nations and epochs, it is the rule.",
+      "author": "Friedrich Nietzsche",
+      "source": "",
+      "tags": [
+        "loucura",
+        "grupos",
+        "política",
+        "filosofia"
+      ],
+      "createdAt": "2026-06-14T12:00:00Z",
+      "updatedAt": "2026-06-14T12:00:00Z"
+    },
+    {
+      "id": 103,
+      "text": "We do not have to visit a madhouse to find disordered minds; our planet is the mental institution of the universe.",
+      "author": "Johann Wolfgang von Goethe",
+      "source": "",
+      "tags": [
+        "loucura",
+        "humanidade",
+        "ironia"
+      ],
+      "createdAt": "2026-06-14T12:00:00Z",
+      "updatedAt": "2026-06-14T12:00:00Z"
+    },
+    {
+      "id": 104,
+      "text": "Everything that irritates us about others can lead us to an understanding of ourselves.",
+      "author": "C.G. Jung",
+      "source": "",
+      "tags": [
+        "psicologia",
+        "sombra",
+        "autoconhecimento",
+        "jung"
+      ],
+      "createdAt": "2026-06-14T12:00:00Z",
+      "updatedAt": "2026-06-14T12:00:00Z"
+    },
+    {
+      "id": 105,
+      "text": "If you don't have a strategy, you're part of someone else's strategy.",
+      "author": "Alvin Toffler",
+      "source": "",
+      "tags": [
+        "estratégia",
+        "poder",
+        "futuro"
+      ],
+      "createdAt": "2026-06-14T12:00:00Z",
+      "updatedAt": "2026-06-14T12:00:00Z"
+    },
+    {
+      "id": 106,
+      "text": "I don't necessarily agree with everything that I say.",
+      "author": "Marshall McLuhan",
+      "source": "",
+      "tags": [
+        "ironia",
+        "comunicação",
+        "filosofia"
+      ],
+      "createdAt": "2026-06-14T12:00:00Z",
+      "updatedAt": "2026-06-14T12:00:00Z"
+    },
+    {
+      "id": 107,
+      "text": "The best way to keep a prisoner from escaping is to make sure he never knows he's in prison.",
+      "author": "Fyodor Dostoyevsky",
+      "source": "",
+      "tags": [
+        "liberdade",
+        "consciência",
+        "poder"
+      ],
+      "createdAt": "2026-06-14T12:00:00Z",
+      "updatedAt": "2026-06-14T12:00:00Z"
+    },
+    {
+      "id": 108,
+      "text": "Geniality is not a fixed reality but a punctuate experience",
+      "author": "John Nosta",
+      "source": "",
+      "tags": [
+        "genialidade",
+        "criatividade",
+        "psicologia"
+      ],
+      "createdAt": "2026-06-14T12:00:00Z",
+      "updatedAt": "2026-06-14T12:00:00Z"
+    },
+    {
+      "id": 109,
+      "text": "Why, Mr. Anderson? Why, why? Why do you do it? Why, why get up? Why keep fighting? Do you believe you're fighting... for something? For more than your survival? Can you tell me what it is? Do you even know? Is it freedom? Or truth? Perhaps peace? Could it be for love? Illusions, Mr. Anderson. Vagaries of perception. Temporary constructs of a feeble human intellect trying desperately to justify an existence that is without meaning or purpose. And all of them as artificial as the Matrix itself, although... only a human mind could invent something as insipid as love. You must be able to see it, Mr. Anderson. You must know it by now. You can't win. It's pointless to keep fighting. Why, Mr. Anderson? Why? Why do you persist?",
+      "author": "Agente Smith",
+      "source": "Matrix",
+      "tags": [
+        "filosofia",
+        "existencialismo",
+        "cinema",
+        "nihilismo"
+      ],
+      "createdAt": "2026-06-14T12:00:00Z",
+      "updatedAt": "2026-06-14T12:00:00Z"
+    },
+    {
+      "id": 110,
+      "text": "Inteligência encobre feiura, mas beleza não disfarça burrice",
+      "author": "Vanessa Pimentel",
+      "source": "",
+      "tags": [
+        "inteligência",
+        "beleza",
+        "ironia"
+      ],
+      "createdAt": "2026-06-14T12:00:00Z",
+      "updatedAt": "2026-06-14T12:00:00Z"
+    },
+    {
+      "id": 111,
+      "text": "You call it procrastinating? I call it thinking",
+      "author": "Aaron Sorkin (atribuído)",
+      "source": "",
+      "tags": [
+        "procrastinação",
+        "criatividade",
+        "ironia"
+      ],
+      "createdAt": "2026-06-14T12:00:00Z",
+      "updatedAt": "2026-06-14T12:00:00Z"
+    },
+    {
+      "id": 112,
+      "text": "All opinions are not equal. Some are a very great deal more robust, sophisticated and well supported in logic and argument than others.",
+      "author": "Douglas Adams",
+      "source": "",
+      "tags": [
+        "opinião",
+        "lógica",
+        "pensamento crítico"
+      ],
+      "createdAt": "2026-06-14T12:00:00Z",
+      "updatedAt": "2026-06-14T12:00:00Z"
+    },
+    {
+      "id": 113,
+      "text": "It's our imagination that is responsible for love, not the other person",
+      "author": "Marcel Proust",
+      "source": "",
+      "tags": [
+        "amor",
+        "imaginação",
+        "psicologia"
+      ],
+      "createdAt": "2026-06-14T12:00:00Z",
+      "updatedAt": "2026-06-14T12:00:00Z"
+    },
+    {
+      "id": 114,
+      "text": "Nem todos estão satisfeitos com a própria aparência, mas quase todos estão satisfeitos com o próprio cérebro",
+      "author": "Provérbio Iídiche",
+      "source": "",
+      "tags": [
+        "ego",
+        "autoestima",
+        "ironia"
+      ],
+      "createdAt": "2026-06-14T12:00:00Z",
+      "updatedAt": "2026-06-14T12:00:00Z"
+    },
+    {
+      "id": 115,
+      "text": "Se alguém precisa de religião para ser bom, a pessoa não é boa, é um cão adestrado.",
+      "author": "Rinpoche",
+      "source": "",
+      "tags": [
+        "religião",
+        "moral",
+        "filosofia"
+      ],
+      "createdAt": "2026-06-14T12:00:00Z",
+      "updatedAt": "2026-06-14T12:00:00Z"
+    },
+    {
+      "id": 116,
+      "text": "Inspiration is for amateurs — the rest of us just show up and get to work",
+      "author": "Chuck Close",
+      "source": "",
+      "tags": [
+        "disciplina",
+        "arte",
+        "trabalho"
+      ],
+      "createdAt": "2026-06-14T12:00:00Z",
+      "updatedAt": "2026-06-14T12:00:00Z"
+    },
+    {
+      "id": 117,
+      "text": "Não vemos o mundo como ele é, mas como nós somos.",
+      "author": "André Cancian",
+      "source": "",
+      "tags": [
+        "percepção",
+        "psicologia",
+        "filosofia"
+      ],
+      "createdAt": "2026-06-14T12:00:00Z",
+      "updatedAt": "2026-06-14T12:00:00Z"
+    },
+    {
+      "id": 118,
+      "text": "Meditação é libertar a mente de toda desonestidade.",
+      "author": "Jiddu Krishnamurti",
+      "source": "",
+      "tags": [
+        "meditação",
+        "honestidade",
+        "mente"
+      ],
+      "createdAt": "2026-06-14T12:00:00Z",
+      "updatedAt": "2026-06-14T12:00:00Z"
+    },
+    {
+      "id": 119,
+      "text": "A todos com quem realmente me importo, desejo sofrimento, desolação, doença, maus-tratos, indignidades, o profundo desprezo por si, a tortura da falta de alto-confiança, e a desgraça dos derrotados.",
+      "author": "Nietzsche",
+      "source": "A Vontade de Poder",
+      "tags": [
+        "nietzsche",
+        "filosofia",
+        "sofrimento",
+        "crescimento"
+      ],
+      "createdAt": "2026-06-14T12:00:00Z",
+      "updatedAt": "2026-06-14T12:00:00Z"
+    },
+    {
+      "id": 120,
+      "text": "Childhood is either absurdly superficial or profoundly shitty. There's no in-between. Anyone who reminisces about their happy childhood is delusional.",
+      "author": "Sol Luckman",
+      "source": "Beginner's Luke",
+      "tags": [
+        "infância",
+        "nostalgia",
+        "ironia"
+      ],
+      "createdAt": "2026-06-14T12:00:00Z",
+      "updatedAt": "2026-06-14T12:00:00Z"
+    },
+    {
+      "id": 121,
+      "text": "Um sinal de uma mente racional chegar a algumas conclusões com as quais você está emocionalmente desconfortável. Outro sinal – você as aceita",
+      "author": "Anônimo",
+      "source": "",
+      "tags": [
+        "racionalidade",
+        "emoção",
+        "pensamento crítico"
+      ],
+      "createdAt": "2026-06-14T12:00:00Z",
+      "updatedAt": "2026-06-14T12:00:00Z"
+    },
+    {
+      "id": 122,
+      "text": "Care about what other people think and you will always be their prisoner.",
+      "author": "James Frey (atribuído)",
+      "source": "",
+      "tags": [
+        "opinião",
+        "liberdade",
+        "ego"
+      ],
+      "createdAt": "2026-06-14T12:00:00Z",
+      "updatedAt": "2026-06-14T12:00:00Z"
+    },
+    {
+      "id": 123,
+      "text": "You know what the true definition of hell is? It's when you die, you get to meet the person you could have been.",
+      "author": "Frank Mir",
+      "source": "",
+      "tags": [
+        "potencial",
+        "arrependimento",
+        "filosofia"
+      ],
+      "createdAt": "2026-06-14T12:00:00Z",
+      "updatedAt": "2026-06-14T12:00:00Z"
+    },
+    {
+      "id": 124,
+      "text": "Every artist was first an amateur",
+      "author": "Ralph Waldo Emerson",
+      "source": "",
+      "tags": [
+        "arte",
+        "crescimento",
+        "início"
+      ],
+      "createdAt": "2026-06-14T12:00:00Z",
+      "updatedAt": "2026-06-14T12:00:00Z"
+    },
+    {
+      "id": 125,
+      "text": "You not only choose 'what to do' but in so choosing, you choose who you are.",
+      "author": "Jean-Paul Sartre",
+      "source": "",
+      "tags": [
+        "existencialismo",
+        "escolha",
+        "identidade"
+      ],
+      "createdAt": "2026-06-14T12:00:00Z",
+      "updatedAt": "2026-06-14T12:00:00Z"
+    },
+    {
+      "id": 126,
+      "text": "Change is the only static thing in life",
+      "author": "Anônimo",
+      "source": "",
+      "tags": [
+        "mudança",
+        "paradoxo",
+        "filosofia"
+      ],
+      "createdAt": "2026-06-14T12:00:00Z",
+      "updatedAt": "2026-06-14T12:00:00Z"
+    },
+    {
+      "id": 127,
+      "text": "As pessoas que reivindicam algo dificilmente têm senso de humor para aceitar uma crítica",
+      "author": "Millôr Fernandes",
+      "source": "",
+      "tags": [
+        "crítica",
+        "ego",
+        "humor"
+      ],
+      "createdAt": "2026-06-14T12:00:00Z",
+      "updatedAt": "2026-06-14T12:00:00Z"
+    },
+    {
+      "id": 128,
+      "text": "I am not what you think I am. I am not what I think I am. I am what I think you think I am.",
+      "author": "Charles Horton Cooley",
+      "source": "",
+      "tags": [
+        "identidade",
+        "percepção",
+        "psicologia social"
+      ],
+      "createdAt": "2026-06-14T12:00:00Z",
+      "updatedAt": "2026-06-14T12:00:00Z"
+    },
+    {
+      "id": 129,
+      "text": "A história mostra de maneira clara que praticamente nenhuma manifestação pública apresenta explicitamente suas reais motivações.",
+      "author": "Adonai Sant'Anna",
+      "source": "",
+      "tags": [
+        "política",
+        "motivação",
+        "história"
+      ],
+      "createdAt": "2026-06-14T12:00:00Z",
+      "updatedAt": "2026-06-14T12:00:00Z"
+    },
+    {
+      "id": 130,
+      "text": "You don't have to be the best, you just have to be better than you are right now.",
+      "author": "Anônimo",
+      "source": "",
+      "tags": [
+        "crescimento",
+        "progresso",
+        "motivação"
+      ],
+      "createdAt": "2026-06-14T12:00:00Z",
+      "updatedAt": "2026-06-14T12:00:00Z"
+    },
+    {
+      "id": 131,
+      "text": "One of the secrets of mental health is learning how to suffer well.",
+      "author": "Anônimo",
+      "source": "",
+      "tags": [
+        "saúde mental",
+        "sofrimento",
+        "resiliência"
+      ],
+      "createdAt": "2026-06-14T12:00:00Z",
+      "updatedAt": "2026-06-14T12:00:00Z"
+    },
+    {
+      "id": 132,
+      "text": "The best time to plant a tree is five years ago, the next best time is now",
+      "author": "Anônimo",
+      "source": "",
+      "tags": [
+        "ação",
+        "procrastinação",
+        "tempo"
+      ],
+      "createdAt": "2026-06-14T12:00:00Z",
+      "updatedAt": "2026-06-14T12:00:00Z"
+    },
+    {
+      "id": 133,
+      "text": "Act so that you can tell the truth about how you act",
+      "author": "Jordan Peterson",
+      "source": "",
+      "tags": [
+        "ética",
+        "ação",
+        "verdade"
+      ],
+      "createdAt": "2026-06-14T12:00:00Z",
+      "updatedAt": "2026-06-14T12:00:00Z"
+    },
+    {
+      "id": 134,
+      "text": "The secret of getting ahead is getting started. The secret to getting started is breaking your complex overwhelming tasks into small manageable tasks and then starting on the first one",
+      "author": "Mark Twain",
+      "source": "",
+      "tags": [
+        "produtividade",
+        "início",
+        "ação"
+      ],
+      "createdAt": "2026-06-14T12:00:00Z",
+      "updatedAt": "2026-06-14T12:00:00Z"
+    },
+    {
+      "id": 135,
+      "text": "Truth rarely seems to ask the easier choice of us.",
+      "author": "Deborah Adele",
+      "source": "",
+      "tags": [
+        "verdade",
+        "coragem",
+        "ética"
+      ],
+      "createdAt": "2026-06-14T12:00:00Z",
+      "updatedAt": "2026-06-14T12:00:00Z"
+    },
+    {
+      "id": 136,
+      "text": "Boxers don't ask: 'how do I get unpunched?'",
+      "author": "Aesopian",
+      "source": "",
+      "tags": [
+        "resiliência",
+        "ação",
+        "mentalidade"
+      ],
+      "createdAt": "2026-06-14T12:00:00Z",
+      "updatedAt": "2026-06-14T12:00:00Z"
+    },
+    {
+      "id": 137,
+      "text": "If you feel like shit everyone you hate wins",
+      "author": "Tyler Durden",
+      "source": "Clube da Luta",
+      "tags": [
+        "mentalidade",
+        "autoestima",
+        "cinema"
+      ],
+      "createdAt": "2026-06-14T12:00:00Z",
+      "updatedAt": "2026-06-14T12:00:00Z"
+    },
+    {
+      "id": 138,
+      "text": "Every moment you don't spend working towards your dreams is a moment you won't be able to spend in them",
+      "author": "Erick Godsey",
+      "source": "",
+      "tags": [
+        "tempo",
+        "sonhos",
+        "ação"
+      ],
+      "createdAt": "2026-06-14T12:00:00Z",
+      "updatedAt": "2026-06-14T12:00:00Z"
+    },
+    {
+      "id": 139,
+      "text": "The reason we struggle with insecurity is because we compare our behind-the-scenes with everyone else's highlight reel",
+      "author": "Steve Furtick",
+      "source": "",
+      "tags": [
+        "insegurança",
+        "comparação",
+        "redes sociais"
+      ],
+      "createdAt": "2026-06-14T12:00:00Z",
+      "updatedAt": "2026-06-14T12:00:00Z"
+    },
+    {
+      "id": 140,
+      "text": "If you don't make the time to work on creating the life you want, you're going to be forced to spend a LOT of time dealing with a life you don't want",
+      "author": "Kevin Ngo",
+      "source": "",
+      "tags": [
+        "tempo",
+        "proatividade",
+        "vida"
+      ],
+      "createdAt": "2026-06-14T12:00:00Z",
+      "updatedAt": "2026-06-14T12:00:00Z"
+    },
+    {
+      "id": 141,
+      "text": "Engolimos de uma vez a mentira que nos adula e bebemos gota a gota a verdade que nos amarga.",
+      "author": "Denis Diderot",
+      "source": "",
+      "tags": [
+        "verdade",
+        "mentira",
+        "psicologia"
+      ],
+      "createdAt": "2026-06-14T12:00:00Z",
+      "updatedAt": "2026-06-14T12:00:00Z"
+    },
+    {
+      "id": 142,
+      "text": "Evil is the force that believes its knowledge is complete",
+      "author": "Jordan Peterson",
+      "source": "",
+      "tags": [
+        "mal",
+        "arrogância",
+        "epistemologia"
+      ],
+      "createdAt": "2026-06-14T12:00:00Z",
+      "updatedAt": "2026-06-14T12:00:00Z"
+    },
+    {
+      "id": 143,
+      "text": "It's touching that almost everyone you meet, however outwardly accomplished, craves reassurance you like them and think they're doing OK.",
+      "author": "Alain de Botton",
+      "source": "",
+      "tags": [
+        "validação",
+        "empatia",
+        "psicologia"
+      ],
+      "createdAt": "2026-06-14T12:00:00Z",
+      "updatedAt": "2026-06-14T12:00:00Z"
+    },
+    {
+      "id": 144,
+      "text": "The best cure for one's bad tendencies is to see them fully developed in another person.",
+      "author": "Alain de Botton",
+      "source": "",
+      "tags": [
+        "sombra",
+        "psicologia",
+        "autoconhecimento",
+        "jung"
+      ],
+      "createdAt": "2026-06-14T12:00:00Z",
+      "updatedAt": "2026-06-14T12:00:00Z"
+    },
+    {
+      "id": 145,
+      "text": "I would challenge you to a battle of wits, but I see you are unarmed!",
+      "author": "Shakespeare (atribuído)",
+      "source": "",
+      "tags": [
+        "ironia",
+        "humor",
+        "wit"
+      ],
+      "createdAt": "2026-06-14T12:00:00Z",
+      "updatedAt": "2026-06-14T12:00:00Z"
+    },
+    {
+      "id": 146,
+      "text": "Play stupid games win stupid prizes",
+      "author": "Anônimo",
+      "source": "",
+      "tags": [
+        "consequências",
+        "escolhas",
+        "ironia"
+      ],
+      "createdAt": "2026-06-14T12:00:00Z",
+      "updatedAt": "2026-06-14T12:00:00Z"
+    },
+    {
+      "id": 147,
+      "text": "God will not have his work made manifest by cowards.",
+      "author": "Ralph Waldo Emerson",
+      "source": "",
+      "tags": [
+        "coragem",
+        "fé",
+        "ação"
+      ],
+      "createdAt": "2026-06-14T12:00:00Z",
+      "updatedAt": "2026-06-14T12:00:00Z"
+    },
+    {
+      "id": 148,
+      "text": "Everyone wants a better life: very few of us want to be better people.",
+      "author": "Alain de Botton",
+      "source": "",
+      "tags": [
+        "crescimento",
+        "autoengano",
+        "filosofia"
+      ],
+      "createdAt": "2026-06-14T12:00:00Z",
+      "updatedAt": "2026-06-14T12:00:00Z"
+    },
+    {
+      "id": 149,
+      "text": "The feeling one has no time to get anything done provides the pressure that guarantees one does get some things done",
+      "author": "Alain de Botton",
+      "source": "",
+      "tags": [
+        "tempo",
+        "pressão",
+        "produtividade"
+      ],
+      "createdAt": "2026-06-14T12:00:00Z",
+      "updatedAt": "2026-06-14T12:00:00Z"
+    },
+    {
+      "id": 150,
+      "text": "If I accept you as you are, I make you worse; however, if I treat you as though you are what you are capable of becoming I help you become that.",
+      "author": "Goethe",
+      "source": "",
+      "tags": [
+        "potencial",
+        "educação",
+        "relacionamentos"
+      ],
+      "createdAt": "2026-06-14T12:00:00Z",
+      "updatedAt": "2026-06-14T12:00:00Z"
+    },
+    {
+      "id": 151,
+      "text": "To laugh often and much, to win the respect of intelligent people and the affection of children, to leave the world a bit better, to know even one life has breathed easier because you lived... This is to know success.",
+      "author": "Ralph Waldo Emerson",
+      "source": "",
+      "tags": [
+        "sucesso",
+        "impacto",
+        "vida"
+      ],
+      "createdAt": "2026-06-14T12:00:00Z",
+      "updatedAt": "2026-06-14T12:00:00Z"
+    },
+    {
+      "id": 152,
+      "text": "Podemos julgar o caráter de um homem por como ele trata aqueles que não podem fazer nada por ele.",
+      "author": "Anônimo",
+      "source": "",
+      "tags": [
+        "caráter",
+        "empatia",
+        "ética"
+      ],
+      "createdAt": "2026-06-14T12:00:00Z",
+      "updatedAt": "2026-06-14T12:00:00Z"
+    },
+    {
+      "id": 153,
+      "text": "A felicidade está não em fazer tudo o que quero, mas sim em não fazer o que não quero",
+      "author": "Anônimo",
+      "source": "",
+      "tags": [
+        "felicidade",
+        "liberdade",
+        "autonomia"
+      ],
+      "createdAt": "2026-06-14T12:00:00Z",
+      "updatedAt": "2026-06-14T12:00:00Z"
+    },
+    {
+      "id": 154,
+      "text": "If you have to tell people what you are, you're probably not.",
+      "author": "Anônimo",
+      "source": "",
+      "tags": [
+        "identidade",
+        "autenticidade",
+        "ego"
+      ],
+      "createdAt": "2026-06-14T12:00:00Z",
+      "updatedAt": "2026-06-14T12:00:00Z"
+    },
+    {
+      "id": 155,
+      "text": "In order to change an existing paradigm you do not struggle to try and change the problematic model. You create a new model and make the old one obsolete.",
+      "author": "R. Buckminster Fuller",
+      "source": "",
+      "tags": [
+        "inovação",
+        "mudança",
+        "criatividade"
+      ],
+      "createdAt": "2026-06-14T12:00:00Z",
+      "updatedAt": "2026-06-14T12:00:00Z"
+    },
+    {
+      "id": 156,
+      "text": "Man has no individual I. But there are, instead, hundreds and thousands of separate small I's, very often entirely unknown to one another, never coming into contact, or, on the contrary, hostile to each other, mutually exclusive and incompatible. Each minute, each moment, man is saying or thinking, 'I'. And each time his I is different. Just now it was a thought, now it is a desire, now a sensation, now another thought, and so on, endlessly. Man is a plurality. Man's name is legion.",
+      "author": "G. I. Gurdjieff",
+      "source": "",
+      "tags": [
+        "identidade",
+        "psicologia",
+        "filosofia",
+        "ego"
+      ],
+      "createdAt": "2026-06-14T12:00:00Z",
+      "updatedAt": "2026-06-14T12:00:00Z"
+    },
+    {
+      "id": 157,
+      "text": "What you get by achieving your goals is not as important as what you become by achieving your goals",
+      "author": "Zig Ziglar",
+      "source": "",
+      "tags": [
+        "crescimento",
+        "metas",
+        "identidade"
+      ],
+      "createdAt": "2026-06-14T12:00:00Z",
+      "updatedAt": "2026-06-14T12:00:00Z"
+    },
+    {
+      "id": 158,
+      "text": "Forgiveness means giving up all hope for a better past",
+      "author": "Lily Tomlin",
+      "source": "",
+      "tags": [
+        "perdão",
+        "aceitação",
+        "passado"
+      ],
+      "createdAt": "2026-06-14T12:00:00Z",
+      "updatedAt": "2026-06-14T12:00:00Z"
+    },
+    {
+      "id": 159,
+      "text": "Think of your brain as a house that hosts a perpetual noisy party. Each neuron is a guest, yammering away, bumping into furniture, slurping drinks. Meditation is like sending those guests home, and only close friends remain and you can have a quiet, relaxed conversation.",
+      "author": "Kevin Habits",
+      "source": "",
+      "tags": [
+        "meditação",
+        "mente",
+        "metáfora"
+      ],
+      "createdAt": "2026-06-14T12:00:00Z",
+      "updatedAt": "2026-06-14T12:00:00Z"
+    },
+    {
+      "id": 160,
+      "text": "Somos responsáveis pelo que sabemos, sobre o que deveríamos saber e sobre o que deveríamos duvidar",
+      "author": "Anônimo",
+      "source": "",
+      "tags": [
+        "responsabilidade",
+        "conhecimento",
+        "epistemologia"
+      ],
+      "createdAt": "2026-06-14T12:00:00Z",
+      "updatedAt": "2026-06-14T12:00:00Z"
+    }
+  ]
 }
